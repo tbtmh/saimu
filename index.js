@@ -27,6 +27,7 @@ const storeUserController = require('./login/storeUserController')
 const loginUserController = require('./login/loginUserController')
 const logoutController = require('./login/logoutController')
 const homeController = require('./login/homeController')
+const chatbotController = require('./login/chatbotController');
 
 
 /**
@@ -78,6 +79,10 @@ app.post('/user/register', redirectIfAuth,storeUserController)
 app.post('/user/login', redirectIfAuth,loginUserController)
 app.get('/logout', logoutController)
 app.get('/home',authMiddleware, homeController)
+
+
+app.get('/chatbot', chatbotController);
+app.post('/chatbot', chatbotController.postMessage);
 
 
 app.get('/categories', exploreCategories);
