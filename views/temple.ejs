@@ -1,41 +1,39 @@
 <% if(temple != null ) { %>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><%- temple.สถานที่ %></li>
-      </ol>
-    </nav>
-  
-    <div class="col-12 col-md-4">
-      <img src="<%- temple.ภาพสถานที่ %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- temple.สถานที่ %>" loading="lazy">
-    </div>
-  
-    <div class="col-12 col-md-8">
-      <div class="row">
-        <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
-        <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
-          <div class="col-12" style="white-space: pre-line;">
-            <h4>highlight</h4>
-            <%- temple.จุดเด่น %>
-  
-            <h4>day</h4>
-            <%- temple.วันที่เปิดทำการ %>
-  
-            <h4>time</h4>
-            <%- temple.เวลาเปิดทำการ %>
-  
-            <h4>more</h4>
-            <%- temple.รายละเอียดเพิ่มเติม %>
-  
-            <h4>worship</h4>
-            <%- temple.บูชา %>
-               
-          </div>
-  
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%- temple.สถานที่ %></li>
+    </ol>
+  </nav>
+
+  <div class="col-12 col-md-4">
+    <img src="/img/หน้าเปล่า.png" class="img-fluid sticky-top" style="top: 20px;" alt="<%- temple.สถานที่ %>" loading="lazy">
+  </div>
+
+  <div class="col-12 col-md-8">
+    <div class="row">
+      <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
+      <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
+        <div class="col-12" style="white-space: pre-line;">
+          <h4>highlight</h4>
+          <%- temple.จุดเด่น %>
+
+          <h4>day</h4>
+          <%- temple.วันที่เปิดทำการ %>
+
+          <h4>time</h4>
+          <%- temple.เวลาเปิดทำการ %>
+
+          <h4>more</h4>
+          <%- temple.รายละเอียดเพิ่มเติม %>
+
+          <h4>worship</h4>
+          <%- temple.บูชา %>
         </div>
+
       </div>
-    <% } else { %>
-      <p>No item found.</p>
-  <% } %>
-  
-  
+    </div>
+  <% } else { %>
+    <p>No item found.</p>
+<% } %>
+

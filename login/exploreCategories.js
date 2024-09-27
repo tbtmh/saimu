@@ -1,6 +1,6 @@
 require('../models/database');
 const Category = require('../models/Category');
-
+const Temple = require('../models/Temple');
 /**
  * GET /categories
  * Categories 

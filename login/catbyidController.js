@@ -10,8 +10,8 @@ module.exports = async(req, res) => {
     try {
       let categoryId = req.params.id;
       const limitNumber = 20;
-      const categoryById = await Temple.find({ 'category': categoryId }).limit(limitNumber);
-
+      const categoryById = await Temple.find({ 'หมวดหมู่': categoryId }).limit(limitNumber);
+      console.log(categoryById)
       res.render('categories', { 
         
         categoryById } );

@@ -18,6 +18,7 @@ module.exports = (req, res) => {
             })
         } else {
             res.redirect('/login')
+            //ขึ้นว่ารหัสผิด
         }
     })
 }
