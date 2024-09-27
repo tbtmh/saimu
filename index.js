@@ -5,10 +5,15 @@ const mongoose = require('mongoose')
 const expressSession = require('express-session')
 const flash = require('connect-flash')
 
-// MongoDB Connection
-mongoose.connect('mongodb+srv://admin:2pemq0KIsaQXOopl@cluster0.bxhj2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-    useNewUrlParser: true
-})
+/**
+ * App Routes 
+*/
+const router = express.Router();
+const fileUpload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
+
+
+
 
 global.loggedIn = null
 
@@ -22,6 +27,19 @@ const storeUserController = require('./login/storeUserController')
 const loginUserController = require('./login/loginUserController')
 const logoutController = require('./login/logoutController')
 const homeController = require('./login/homeController')
+
+
+/**
+ * App Routes 
+*/
+const templeController = require('./login/templeController');
+const exploreCategories = require('./login/exploreCategories');
+const catbyidController = require('./login/catbyidController');
+
+
+
+
+
 
 // Middleware
 const redirectIfAuth = require('./middleware/redirectIfAuth')
@@ -42,6 +60,14 @@ app.use("*", (req, res, next) => {
     loggedIn = req.session.userId
     next()
 })
+
+
+// added
+app.use(cookieParser('CookingBlogSecure'));
+app.use(fileUpload());
+
+
+
 app.set('view engine', 'ejs')
 
 
@@ -54,6 +80,18 @@ app.get('/logout', logoutController)
 app.get('/home',authMiddleware, homeController)
 
 
+app.get('/categories', exploreCategories);
+app.get('/categories/:id', catbyidController);
+app.get('/temple/:id', templeController);
+
+
+
+
 app.listen(4000, () => {
     console.log("App listening on port 4000")
 })
+
+
+
+
+
