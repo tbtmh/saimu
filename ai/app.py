@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
+from pymongo import MongoClient
+from bson.json_util import dumps
 
 app = Flask(__name__)
 
@@ -16,7 +18,7 @@ def predict():
     if not question:
         return jsonify({'error': 'No input provided'}), 400
 
-    question_clean = vectorizer.preprocess(question)  # Preprocess the input
+    question_clean = vectorizer.preprocess(question)  
     question_vectorized = vectorizer.transform(pd.Series([question_clean]))
 
     prediction = model.predict(question_vectorized)

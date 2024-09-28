@@ -71,7 +71,7 @@ app.use(fileUpload());
 
 app.set('view engine', 'ejs')
 
-
+//login
 app.get('/', indexController)
 app.get('/login', redirectIfAuth,loginController)
 app.get('/register', redirectIfAuth,registerController)
@@ -80,11 +80,11 @@ app.post('/user/login', redirectIfAuth,loginUserController)
 app.get('/logout', logoutController)
 app.get('/home',authMiddleware, homeController)
 
-
+//chatbot
 app.get('/chatbot', chatbotController);
 app.post('/chatbot', chatbotController.postMessage);
 
-
+//category
 app.get('/categories', exploreCategories);
 app.get('/categories/:id', catbyidController);
 app.get('/temple/:id', templeController);
