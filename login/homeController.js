@@ -9,11 +9,11 @@ module.exports = async (req, res) => {
         let UserData = await User.findById(req.session.userId)
         const limitNumber = 5;
         const categories = await Category.find({}).limit(limitNumber);
-      
+        const savedplaceLimited = UserData.savedplace.slice(0, limitNumber);
     
         res.render('home', { 
 
-            title: 'Home', categories, UserData
+            title: 'Home', categories, UserData,savedplaceLimited
         } );
       } 
       catch (error) {
@@ -21,3 +21,5 @@ module.exports = async (req, res) => {
       }
     
 }
+
+

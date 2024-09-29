@@ -4,8 +4,8 @@ const Temple = require('../models/Temple');
 
 
 /**
- * GET /recipe/:id
- * Recipe 
+ * GET /temple/:id
+ * Temple 
 */
 module.exports = async(req, res) => {
   try {
