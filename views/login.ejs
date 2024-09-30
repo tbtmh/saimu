@@ -169,7 +169,11 @@
     
     <h1 class="h3 mb-3 fw-normal">Log IN</h1>
     
-    
+    <% if (errorlg && errorlg.length > 0) { %>
+      <div class="alert alert-danger">
+        <%= errorlg[0] %> <!-- แสดงข้อความแจ้งเตือน -->
+      </div>
+    <% } %>
     
 
     <div class="form-floating">
