@@ -27,6 +27,78 @@
 <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#712cf9"> -->
 
+   <!-- style's ing --> 
+    <style>
+      body {
+        background-image: url('element/head.png');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: contain; 
+        background-color: #ffffff; 
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .floating-button {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 1000; 
+          transition: transform 0.3s ease;
+          border-radius: 50%;
+      }
+
+      .name {
+          width: 100%;
+          color: black;
+          text-align: center;
+          text-decoration: none;
+      }
+
+      .category-container {
+          display: flex;            /* ใช้ Flexbox เพื่อจัดเรียงในแนวนอน */
+          justify-content: space-between; /* จัดให้มีช่องว่างระหว่างปุ่ม */
+          align-items: center;      /* จัดตำแหน่งแนวตั้งของปุ่มให้อยู่ตรงกลาง */
+          flex-wrap: wrap;          /* ให้ปุ่มเรียงเป็นแถวใหม่ถ้าหน้าจอแคบ */
+          margin-top: 20px;
+      }
+
+      .category-item {
+          text-align: center;       /* จัดข้อความให้อยู่ตรงกลางใต้ปุ่ม */
+          margin: 25 90px;           /* เพิ่มระยะห่างระหว่างแต่ละปุ่ม */
+      }
+
+      .category-btn {
+          width: 60px;              /* ขนาดของรูปภาพ */
+          height: auto;
+      }
+
+      .category-btn:hover {
+          transform: scale(1.1);    /* ขยายรูปภาพเมื่อเลื่อนเมาส์ */
+      }
+
+      .category-item p {
+          margin-top: 0px;
+          font-size: 14px;          /* ขนาดฟอนต์ของชื่อหมวดหมู่ */
+          color: #333;              /* สีของข้อความ */
+      }
+
+      .image-container {
+          display: flex;
+          overflow-x: auto; /* ให้เลื่อนซ้ายขวาได้ */
+          gap: 5px; /* เว้นระยะระหว่างรูป */
+      }
+
+      .image-item {
+          flex: 0 0 auto; /* ป้องกันไม่ให้ย่อขนาด */
+      }
+
+      .image-item img {
+          width: fit-content; /* กำหนดความกว้างของรูปภาพ */
+          height: auto; /* ปรับความสูงอัตโนมัติ */
+          border-radius: 8px; /* มุมมน */
+          gap: 5px; /* เว้นระยะระหว่างรูป */
+      }
+    </style>
 <!-- 
     <style>
       .bd-placeholder-img {
@@ -112,9 +184,11 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet"> -->
     <!-- Custom styles for this template -->
     <!-- <link href="/css/blog.css" rel="stylesheet">
+  -->
   </head>
+  
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <!--<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
       </symbol>
@@ -128,8 +202,86 @@
       <symbol id="sun-fill" viewBox="0 0 16 16">
         <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
       </symbol>
-    </svg>
- -->
+    </svg>-->
+<!--Body's Ing-->
+  <div class="container">
+    <!-- Section: Welcome -->
+    <div class="row" style="margin-top: 10vh;">
+        <div class="col-md-6">
+            <h1 class="display-5 text-dark">Welcome</h1>
+            <p>Let's find somewhere to MooTeLoo!</p>
+        </div>
+    </div>
+
+    <!-- Section: Categories -->
+    <div class="row" style="margin-top: 2vh;">
+        <div class="col-md-12">
+            <h5>Categories</h5>
+            <div class="category-container">
+                <div class="category-item">
+                    <a href="./categories/love.html">
+                        <img src="element/love.png"Love" class="category-btn">
+                    </a>
+                    <p>Love</p>
+                </div>
+                <div class="category-item">
+                    <a href="./categories/money.html">
+                        <img src="element/money.png" alt="Money" class="category-btn">
+                    </a>
+                    <p>Money</p>
+                </div>
+                <div class="category-item">
+                    <a href="./categories/health.html">
+                        <img src="element/health.png" alt="Health" class="category-btn">
+                    </a>
+                    <p>Health</p>
+                </div>
+                <div class="category-item">
+                    <a href="./categories/work.html">
+                        <img src="element/work.png" alt="Work" class="category-btn">
+                    </a>
+                    <p>Work</p>
+                </div>
+                <div class="category-item">
+                    <a href="./categories/horo.html">
+                        <img src="element/horo.png" alt="Horo" class="category-btn">
+                    </a>
+                    <p>Horo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: Recommended -->
+    <div class="row" style="margin-top: 2vh;">
+        <div class="col-md-12">
+            <h5>Recommended</h5>
+            <div class="image-container">
+                <a href="https://example1.com" class="image-item">
+                    <img src="element/Wat-Arun.png" alt="Wat-Arun">
+                </a>
+                <a href="https://example2.com" class="image-item">
+                    <img src="element/Wat-Pho.png" alt="Wat-Pho">
+                </a>
+                <a href="https://example3.com" class="image-item">
+                    <img src="element/Wat-Arun.png" alt="Wat-Arun">
+                </a>
+                <a href="https://example4.com" class="image-item">
+                    <img src="element/Wat-Pho.png" alt="Wat-Pho">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: Chatbot -->
+    <div class="row" style="margin-top: 20vh;">
+        <div class="col-md-12 text-end">
+            <a href="./chatbot/chatbot.html" class="floating-button">
+                <img src="element/chatbot.png" alt="Chatbot" style="width: 60px; height: 60px;">
+            </a>
+        </div>
+    </div>
+  </div>
 
  <div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
   <div class="col-12 col-lg-6">
@@ -268,6 +420,6 @@
 </footer>
 <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    </body>
+</body>
 </html>
 
