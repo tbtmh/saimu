@@ -1,0 +1,82 @@
+<% if(amulet != null ) { %>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><%- amulet.ชื่อเครื่องราง %></li>
+        <li class="breadcrumb-item"><a href="/categories/<%- amulet.หมวดหมู่ %>">ย้อนกลับ</a></li>
+      </ol>
+    </nav>
+  
+    <div class="col-12 col-md-4">
+      <img src="/img/หน้าเปล่า.png" class="img-fluid sticky-top" style="top: 20px;" alt="<%- amulet.ชื่อเครื่องราง %>" loading="lazy">
+    </div>
+  
+    <form action="/savedplace" method="POST">
+      
+      <div class="form-floating">
+        
+        <input type="hidden" name="amuletId" value= "<%= amulet._id %>" >
+      </div>
+      
+      <button class="btn btn-primary w-20 py-2" type="submit">saved</button>
+      
+    </form>
+  
+  
+  
+  
+  <!-- show added/removed msg -->
+  <% if (msg && msg.length > 0) { %>
+    <div class="alert alert-success">
+      <%= msg[0] %> 
+    </div>
+  <% } %>
+  <!-- show added/removed msg -->
+  
+  
+  
+  
+  
+    <div class="col-12 col-md-8">
+      <div class="row">
+        <div class="col-12"><h1><%- amulet.ชื่อเครื่องราง %></h1></div>
+        <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- amulet.หมวดหมู่ %></div>
+          <div class="col-12" style="white-space: pre-line;">
+            <h4>พิกัดขาย</h4>
+            <%- amulet.พิกัดขาย %>
+  
+            <h4>ประเภทเครื่องราง</h4>
+            <%- amulet.ประเภทเครื่องราง %>
+  
+            <h4>ความเชื่อ</h4>
+            <%- amulet.ความเชื่อ %>
+  
+            <h4>วัสดุที่ใช้</h4>
+            <%- amulet.วัสดุที่ใช้ %>
+  
+            <h4>ปีที่สร้าง</h4>
+            <%- amulet.ปีที่สร้าง %>
+
+            <h4>พิธีปลุกเสก</h4>
+            <%- amulet.พิธีปลุกเสก %>
+
+            <h4>วัตถุประสงค์การใช้งาน</h4>
+            <%- amulet.วัตถุประสงค์การใช้งาน %>
+
+            <h4>ราคาโดยประมาณ</h4>
+            <%- amulet.ราคาโดยประมาณ %>
+
+            <h4>ความนิยม</h4>
+            <%- amulet.ความนิยม %>
+
+            <h4>ความเกี่ยวข้องกับบุคคลสำคัญ</h4>
+            <%- amulet.ความเกี่ยวข้องกับบุคคลสำคัญ %>
+          </div>
+  
+        </div>
+      </div>
+    <% } else { %>
+      <p>No item found.</p>
+  <% } %>
+  
+  
