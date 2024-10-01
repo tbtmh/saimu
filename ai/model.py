@@ -77,9 +77,20 @@ random_search = RandomizedSearchCV(
 
 random_search.fit(x_train, y_train)
 
+y_pred = random_search.predict(x_test)
+
+y_pred_labels = label_encoder.inverse_transform(y_pred)
+y_test_labels = label_encoder.inverse_transform(y_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred, average='weighted')
+
 
 dump(random_search, './save_model/model.pkl')
 dump(vectorizer, './save_model/vectorizer.pkl')
 dump(label_encoder, './save_model/label_encoder.pkl')
 
+
 print("Model training complete.")
+print(f'Accuracy: {accuracy}')
+print(f'Precision: {precision}')
