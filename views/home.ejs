@@ -9,6 +9,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Mamoo Homepage</title>
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
@@ -28,78 +29,6 @@
 <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#712cf9"> -->
 
-   <!-- style's ing --> 
-    <style>
-      body {
-        background-image: url('../img/head.png');
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-size: contain; 
-        background-color: #ffffff; 
-        font-family: 'Poppins', sans-serif;
-      }
-
-      .floating-button {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          z-index: 1000; 
-          transition: transform 0.3s ease;
-          border-radius: 50%;
-      }
-
-      .name {
-          width: 100%;
-          color: black;
-          text-align: center;
-          text-decoration: none;
-      }
-
-      .category-container {
-          display: flex;            /* ใช้ Flexbox เพื่อจัดเรียงในแนวนอน */
-          justify-content: space-between; /* จัดให้มีช่องว่างระหว่างปุ่ม */
-          align-items: center;      /* จัดตำแหน่งแนวตั้งของปุ่มให้อยู่ตรงกลาง */
-          flex-wrap: wrap;          /* ให้ปุ่มเรียงเป็นแถวใหม่ถ้าหน้าจอแคบ */
-          margin-top: 20px;
-      }
-
-      .category-item {
-          text-align: center;       /* จัดข้อความให้อยู่ตรงกลางใต้ปุ่ม */
-          margin: 25 90px;           /* เพิ่มระยะห่างระหว่างแต่ละปุ่ม */
-      }
-
-      .category-btn {
-          width: 60px;              /* ขนาดของรูปภาพ */
-          height: auto;
-      }
-
-      .category-btn:hover {
-          transform: scale(1.1);    /* ขยายรูปภาพเมื่อเลื่อนเมาส์ */
-      }
-
-      .category-item p {
-          margin-top: 0px;
-          font-size: 14px;          /* ขนาดฟอนต์ของชื่อหมวดหมู่ */
-          color: #333;              /* สีของข้อความ */
-      }
-
-      .image-container {
-          display: flex;
-          overflow-x: auto; /* ให้เลื่อนซ้ายขวาได้ */
-          gap: 5px; /* เว้นระยะระหว่างรูป */
-      }
-
-      .image-item {
-          flex: 0 0 auto; /* ป้องกันไม่ให้ย่อขนาด */
-      }
-
-      .image-item img {
-          width: fit-content; /* กำหนดความกว้างของรูปภาพ */
-          height: auto; /* ปรับความสูงอัตโนมัติ */
-          border-radius: 8px; /* มุมมน */
-          gap: 5px; /* เว้นระยะระหว่างรูป */
-      }
-    </style>
 <!-- 
     <style>
       .bd-placeholder-img {
@@ -221,43 +150,43 @@
             <div class="category-container">
                 <div class="category-item">
                     <a href="./categories/love.html">
-                        <img src="../img/love.png" alt="Love" class="category-btn">
+                        <img src="../img/love.png" alt="Love"  loading="lazy" class="category-btn">
                     </a>
                     <p>Love</p>
                 </div>
                 <div class="category-item">
                     <a href="./categories/money.html">
-                        <img src="../img/money.png" alt="Money" class="category-btn">
+                        <img src="../img/money.png" alt="Money"  loading="lazy" class="category-btn">
                     </a>
                     <p>Money</p>
                 </div>
                 <div class="category-item">
                     <a href="./categories/health.html">
-                        <img src="../img/health.png" alt="Health" class="category-btn">
+                        <img src="../img/health.png" alt="Health"  loading="lazy" class="category-btn">
                     </a>
                     <p>Health</p>
                 </div>
                 <div class="category-item">
                     <a href="./categories/work.html">
-                        <img src="../img/work.png" alt="Work" class="category-btn">
+                        <img src="../img/work.png" alt="Work"  loading="lazy" class="category-btn">
                     </a>
                     <p>Work</p>
                 </div>
                 <div class="category-item">
                   <a href="./categories/travel.html">
-                      <img src="../img/travel.png" alt="Travel" class="category-btn">
+                      <img src="../img/travel.png" alt="Travel"  loading="lazy" class="category-btn">
                   </a>
                   <p>Travel</p>
                 </div>
                 <div class="category-item">
                   <a href="./categories/work.html">
-                      <img src="../img/study.png" alt="Study" class="category-btn">
+                      <img src="../img/study.png" alt="Study"  loading="lazy" class="category-btn">
                   </a>
                   <p>Study</p>
                 </div>
                 <div class="category-item">
                     <a href="./categories/horo.html">
-                        <img src="../img/horo.png" alt="Horo" class="category-btn">
+                        <img src="../img/horo.png" alt="Horo"  loading="lazy" class="category-btn">
                     </a>
                     <p>Horo</p>
                 </div>
@@ -266,23 +195,26 @@
     </div>
 
     <!-- Section: Saved Places -->
-    <h3 class="pb-4">Saved Place</h3>
-    <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4"></div>
-
-    <% if (savedplaceLimited.length > 0) { %> <!-- เช็คว่า savedplaceLimited มีข้อมูล -->
-      <% savedplaceLimited.forEach(function(temple, index) { %> <!-- ลูปผ่าน savedplaceLimited -->
-        <a href="/temple/<%- temple._id %>" class="col text-center category__link">
-          <div class="category__img shadow">
-            <img src="/img/หน้าเปล่า.png" alt="<%- temple.สถานที่ %>" loading="lazy"> <!-- แสดงรูปภาพ -->
-          </div>
-        <div class="pt-1"><%- temple.สถานที่ %></div> <!-- แสดงชื่อสถานที่ -->
-        </a>
-        <% }) %>
-      <% } else { %>
-      <p>No items found.</p>
-      <% } %> 
+    <div class="row" style="margin-top: 2vh;">
+      <div class="col-md-12">
+        <h3>Saved Places</h3>
+        <div class="image-container">
+          <% if (savedplaceLimited.length > 0) { %> <!-- เช็คว่า savedplaceLimited มีข้อมูล -->
+            <% savedplaceLimited.forEach(function(temple, index) { %> <!-- ลูปผ่าน savedplaceLimited -->
+              <a href="/temple/<%- temple._id %>" class="col text-center category__link">
+                <div class="category__img shadow">
+                  <img src="/img/หน้าเปล่า.png" alt="<%- temple.สถานที่ %>" loading="lazy"> <!-- แสดงรูปภาพ -->
+                </div>
+                <div class="pt-1"><%- temple.สถานที่ %></div> <!-- แสดงชื่อสถานที่ -->
+              </a>
+            <% }) %>
+          <% } else { %>
+            <p>No items found.</p>
+          <% } %>
+        </div>
+      </div>
     </div>
-
+    
     <!-- Section: Chatbot -->
     <div class="row" style="margin-top: 20vh;">
         <div class="col-md-12 text-end">
