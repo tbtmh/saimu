@@ -266,30 +266,27 @@
     </div>
 
     <!-- Section: Saved Places -->
-    <div class="row" style="margin-top: 2vh;">
-        <div class="col-md-12">
-            <h3>Saved Places</h3>
-            <div class="image-container">
-                <a href="https://example1.com" class="image-item">
-                    <img src="element/Wat-Arun.png" alt="Wat-Arun">
-                </a>
-                <a href="https://example2.com" class="image-item">
-                    <img src="element/Wat-Pho.png" alt="Wat-Pho">
-                </a>
-                <a href="https://example3.com" class="image-item">
-                    <img src="element/Wat-Arun.png" alt="Wat-Arun">
-                </a>
-                <a href="https://example4.com" class="image-item">
-                    <img src="element/Wat-Pho.png" alt="Wat-Pho">
-                </a>
-            </div>
-        </div>
+    <h3 class="pb-4">Saved Place</h3>
+    <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4"></div>
+
+    <% if (savedplaceLimited.length > 0) { %> <!-- เช็คว่า savedplaceLimited มีข้อมูล -->
+      <% savedplaceLimited.forEach(function(temple, index) { %> <!-- ลูปผ่าน savedplaceLimited -->
+        <a href="/temple/<%- temple._id %>" class="col text-center category__link">
+          <div class="category__img shadow">
+            <img src="/img/หน้าเปล่า.png" alt="<%- temple.สถานที่ %>" loading="lazy"> <!-- แสดงรูปภาพ -->
+          </div>
+        <div class="pt-1"><%- temple.สถานที่ %></div> <!-- แสดงชื่อสถานที่ -->
+        </a>
+        <% }) %>
+      <% } else { %>
+      <p>No items found.</p>
+      <% } %> 
     </div>
 
     <!-- Section: Chatbot -->
     <div class="row" style="margin-top: 20vh;">
         <div class="col-md-12 text-end">
-            <a href="./chatbot.html" class="floating-button">
+            <a href="/chatbot" class="floating-button">
                 <img src="../img/chatbot.png" alt="Chatbot" style="width: 60px; height: 60px;">
             </a>
         </div>
