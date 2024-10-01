@@ -40,8 +40,7 @@ const templeSchema = new mongoose.Schema({
   },
 });
 
-templeSchema.index({ name: 'text', description: 'text' });
-// WildCard Indexing
-//recipeSchema.index({ "$**" : 'text' });
+templeSchema.index({ สถานที่: 'text', รายละเอียดเพิ่มเติม: 'text' });
 
-module.exports = mongoose.model('Temple', templeSchema);
+
+module.exports = mongoose.model('Temple', templeSchema, 'dataset01(temple)');
