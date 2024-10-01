@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Mamoo Homepage</title>
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
@@ -30,7 +31,7 @@
    <!-- style's ing --> 
     <style>
       body {
-        background-image: url('element/head.png');
+        background-image: url('../Mamoo_icon/head.png');
         background-position: top center;
         background-repeat: no-repeat;
         background-size: contain; 
@@ -208,7 +209,7 @@
     <!-- Section: Welcome -->
     <div class="row" style="margin-top: 10vh;">
         <div class="col-md-6">
-            <h1 class="display-5 text-dark">Welcome</h1>
+            <h1 class="display-5 text-dark">Welcome, <%= UserData.email %></a></h1>
             <p>Let's find somewhere to MooTeLoo!</p>
         </div>
     </div>
@@ -216,35 +217,47 @@
     <!-- Section: Categories -->
     <div class="row" style="margin-top: 2vh;">
         <div class="col-md-12">
-            <h5>Categories</h5>
+            <h3>Categories</h3>
             <div class="category-container">
                 <div class="category-item">
                     <a href="./categories/love.html">
-                        <img src="element/love.png"Love" class="category-btn">
+                        <img src="../Mamoo_icon/love.png"Love" class="category-btn">
                     </a>
                     <p>Love</p>
                 </div>
                 <div class="category-item">
                     <a href="./categories/money.html">
-                        <img src="element/money.png" alt="Money" class="category-btn">
+                        <img src="../Mamoo_icon/money.png" alt="Money" class="category-btn">
                     </a>
                     <p>Money</p>
                 </div>
                 <div class="category-item">
                     <a href="./categories/health.html">
-                        <img src="element/health.png" alt="Health" class="category-btn">
+                        <img src="../Mamoo_icon/health.png" alt="Health" class="category-btn">
                     </a>
                     <p>Health</p>
                 </div>
                 <div class="category-item">
                     <a href="./categories/work.html">
-                        <img src="element/work.png" alt="Work" class="category-btn">
+                        <img src="../Mamoo_icon/work.png" alt="Work" class="category-btn">
                     </a>
                     <p>Work</p>
                 </div>
                 <div class="category-item">
+                  <a href="./categories/travel.html">
+                      <img src="../Mamoo_icon/travel.png" alt="Travel" class="category-btn">
+                  </a>
+                  <p>Travel</p>
+                </div>
+                <div class="category-item">
+                  <a href="./categories/work.html">
+                      <img src="../Mamoo_icon/study.png" alt="Study" class="category-btn">
+                  </a>
+                  <p>Study</p>
+                </div>
+                <div class="category-item">
                     <a href="./categories/horo.html">
-                        <img src="element/horo.png" alt="Horo" class="category-btn">
+                        <img src="../Mamoo_icon/horo.png" alt="Horo" class="category-btn">
                     </a>
                     <p>Horo</p>
                 </div>
@@ -252,10 +265,10 @@
         </div>
     </div>
 
-    <!-- Section: Recommended -->
+    <!-- Section: Saved Places -->
     <div class="row" style="margin-top: 2vh;">
         <div class="col-md-12">
-            <h5>Recommended</h5>
+            <h3>Saved Places</h3>
             <div class="image-container">
                 <a href="https://example1.com" class="image-item">
                     <img src="element/Wat-Arun.png" alt="Wat-Arun">
@@ -277,7 +290,7 @@
     <div class="row" style="margin-top: 20vh;">
         <div class="col-md-12 text-end">
             <a href="./chatbot/chatbot.html" class="floating-button">
-                <img src="element/chatbot.png" alt="Chatbot" style="width: 60px; height: 60px;">
+                <img src="../Mamoo_icon/chatbot.png" alt="Chatbot" style="width: 60px; height: 60px;">
             </a>
         </div>
     </div>
