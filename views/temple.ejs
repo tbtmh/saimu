@@ -7,8 +7,27 @@
     </ol>
   </nav>
 
+  <% 
+  function convertGoogleDriveLink(driveLink) {
+    if (!driveLink) {
+      return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
+    }
+    const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
+    return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
+  }
+  const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่);
+  %>
+
+
+
+
   <div class="col-12 col-md-4">
-    <img src="/img/หน้าเปล่า.png" class="img-fluid sticky-top" style="top: 20px;" alt="<%- temple.สถานที่ %>" loading="lazy">
+    <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- convertedLink %>" loading="lazy">
+  </div>
+
+  
+  <div class="col-12 col-md-4">
+    <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- temple.ภาพสถานที่ %>" loading="lazy">
   </div>
 
   <form action="/savedplace" method="POST">
@@ -54,3 +73,5 @@
     <p>No item found.</p>
 <% } %>
   
+
+

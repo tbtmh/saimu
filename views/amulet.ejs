@@ -6,12 +6,24 @@
         <li class="breadcrumb-item"><a href="/categories/<%- amulet.หมวดหมู่ %>">ย้อนกลับ</a></li>
       </ol>
     </nav>
-  
+    <% 
+      function convertGoogleDriveLink(driveLink) {
+        if (!driveLink) {
+          return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
+        }
+        const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
+        return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
+      }
+      const convertedLink = convertGoogleDriveLink(amulet.ภาพ);
+      %>
+
     <div class="col-12 col-md-4">
-      <img src="/img/หน้าเปล่า.png" class="img-fluid sticky-top" style="top: 20px;" alt="<%- amulet.ชื่อเครื่องราง %>" loading="lazy">
+      <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- convertedLink %>" loading="lazy">
     </div>
-  
-  
+    <div class="col-12 col-md-4">
+      <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- amulet.ภาพ %>" loading="lazy">
+    </div>
+    
   
   
   <!-- show added/removed msg -->
