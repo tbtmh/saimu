@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     const categoryById = await Temple.find({ 'หมวดหมู่': categoryId }).limit(limitNumber);
     const categoryByIdamu = await Amulet.find({ 'หมวดหมู่': categoryId }).limit(limitNumber);
 
-    res.render('categories', { 
+    res.render('catwitid', { 
       categoryById: categoryById,
       categoryByIdamu: categoryByIdamu
     });
