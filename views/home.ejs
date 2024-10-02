@@ -14,8 +14,7 @@
 
   <body>
   <!-- categories -->
-  <h1 class="pb-4">เลือกหมวดหมู่</h1>
-
+<!-- nav bar
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       
@@ -23,7 +22,7 @@
       <li class="breadcrumb-item active" aria-current="page">เลือกหมวดหมู่</li>
     </ol>
   </nav>
-
+-->
   <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
 
     <% if(categories != '') { %>
@@ -87,9 +86,22 @@
       <!-- Section: Categories -->
       <div class="row" style="margin-top: 2vh;">
           <div class="col-md-12">
-              <h3>Categories</h3>
+            <h3>Categories</h3>
               <div class="category-container">
+                <% categories.forEach(function(category, index) { %>
                   <div class="category-item">
+                    <a href="/categories/<%- category.name %>"></a>
+                      <div class="category__img shadow">
+                        <img src="/img/<%- category.name %>.png" alt="<%- category.name %>" loading="lazy" class="category-btn">
+                      </div>
+                      <div class="pt-1">
+                          <%- category.name %>
+                      </div>
+                    </a>
+                  </div>
+                  
+                <% }) %>
+<!--
                       <a href="./categories/love.html">
                           <img src="../img/love.png" alt="Love"  loading="lazy" class="category-btn">
                       </a>
@@ -130,9 +142,9 @@
                           <img src="../img/horo.png" alt="Horo"  loading="lazy" class="category-btn">
                       </a>
                       <p>Horo</p>
-                  </div>
+                  </div> -->
               </div>
-          </div>
+          </div> 
       </div>
 
       <!-- Section: Saved Places -->
