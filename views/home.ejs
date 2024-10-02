@@ -91,58 +91,11 @@
                 <% categories.forEach(function(category, index) { %>
                   <div class="category-item">
                     <a href="/categories/<%- category.name %>"></a>
-                      <div class="category__img shadow">
-                        <img src="/img/<%- category.name %>.png" alt="<%- category.name %>" loading="lazy" class="category-btn">
-                      </div>
-                      <div class="pt-1">
-                          <%- category.name %>
-                      </div>
+                      <img src="/img/<%- category.name %>.png" alt="<%- category.name %>" loading="lazy" class="category-btn">
+                      <p><%- category.name %></p>
                     </a>
                   </div>
-                  
                 <% }) %>
-<!--
-                      <a href="./categories/love.html">
-                          <img src="../img/love.png" alt="Love"  loading="lazy" class="category-btn">
-                      </a>
-                      <p>Love</p>
-                  </div>
-                  <div class="category-item">
-                      <a href="./categories/money.html">
-                          <img src="../img/money.png" alt="Money"  loading="lazy" class="category-btn">
-                      </a>
-                      <p>Money</p>
-                  </div>
-                  <div class="category-item">
-                      <a href="./categories/health.html">
-                          <img src="../img/health.png" alt="Health"  loading="lazy" class="category-btn">
-                      </a>
-                      <p>Health</p>
-                  </div>
-                  <div class="category-item">
-                      <a href="./categories/work.html">
-                          <img src="../img/work.png" alt="Work"  loading="lazy" class="category-btn">
-                      </a>
-                      <p>Work</p>
-                  </div>
-                  <div class="category-item">
-                    <a href="./categories/travel.html">
-                        <img src="../img/travel.png" alt="Travel"  loading="lazy" class="category-btn">
-                    </a>
-                    <p>Travel</p>
-                  </div>
-                  <div class="category-item">
-                    <a href="./categories/work.html">
-                        <img src="../img/study.png" alt="Study"  loading="lazy" class="category-btn">
-                    </a>
-                    <p>Study</p>
-                  </div>
-                  <div class="category-item">
-                      <a href="./categories/horo.html">
-                          <img src="../img/horo.png" alt="Horo"  loading="lazy" class="category-btn">
-                      </a>
-                      <p>Horo</p>
-                  </div> -->
               </div>
           </div> 
       </div>
