@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 
     if (!temple) {
       req.flash('errsp', 'Temple not found');
-      return res.redirect('/error'); // เปลี่ยนไปหน้า error หากไม่พบ temple
+      return res.redirect('/categories'); // เปลี่ยนไปหน้า error หากไม่พบ temple
     }
 
     const msg = req.flash('errsp'); // ดึง flash message
