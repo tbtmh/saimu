@@ -158,5 +158,4 @@ body {
 .btn-container {
   display: flex;
   justify-content: center; /* ทำให้ปุ่มแสดงอยู่ซ้ายและขวา */
-  width: 300px; /* ขนาดรวมของ container ที่มีปุ่ม */
 }
