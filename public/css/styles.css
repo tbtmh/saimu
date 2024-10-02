@@ -51,7 +51,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain; 
   background-color: #ffffff; 
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Bai Jamjuree', sans-serif;
 }
 
 .floating-button {
@@ -158,4 +158,5 @@ body {
 .btn-container {
   display: flex;
   justify-content: center; /* ทำให้ปุ่มแสดงอยู่ซ้ายและขวา */
+
 }
