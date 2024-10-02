@@ -130,3 +130,33 @@ body {
     height: 100%; /* ให้ขยายให้เต็มความสูง */
     object-fit: cover; /* บีบอัดและครอบตัดให้ภาพเต็มโดยไม่บิดเบือน */
 }
+
+/* สไตล์สำหรับปุ่ม */
+.custom-btn {
+  padding: 10px 20px;
+  border-radius: 20px; /* ทำขอบมน */
+  border: 2px solid #955AB5; /* ขอบสีม่วง */
+  background-color: transparent; /* พื้นหลังโปร่งใส */
+  color: #757575; /* สีของตัวหนังสือ */
+  font-size: 16px;
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+  transition: all 0.3s ease; /* ทำให้การเปลี่ยนสีเป็น smooth */
+}
+
+/* สไตล์เมื่อ hover */
+.custom-btn:hover {
+  background-color: #955AB5; /* พื้นหลังสีม่วงเมื่อ hover */
+  color: white; /* ตัวหนังสือเปลี่ยนเป็นสีขาว */
+}
+
+/* ปรับขนาดปุ่มตามความต้องการ */
+.custom-btn-small {
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between; /* ทำให้ปุ่มแสดงอยู่ซ้ายและขวา */
+  width: 300px; /* ขนาดรวมของ container ที่มีปุ่ม */
+}

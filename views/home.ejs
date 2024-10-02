@@ -228,6 +228,14 @@
   </body>
 
   <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+    <!-- Log out button -->
+    <div class="row">
+      <div class="btn-container">
+        <% if (loggedIn) { %>
+            <a class="custom-btn custom-btn-small" href="/logout">Log out</a>
+        <% } %>
+      </div>
+    </div>
     <!-- <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p> -->
     <p class="mb-0">
       <a href="#">Back to top</a>
