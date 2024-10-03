@@ -167,7 +167,14 @@
 <main class="form-signin w-100 m-auto">
   <form action="/user/login" method="POST">
     
-    <h1 class="h3 mb-3 fw-normal">Sign IN</h1>
+    <h1 class="h3 mb-3 fw-normal">Log IN</h1>
+    
+    <% if (errorlg && errorlg.length > 0) { %>
+      <div class="alert alert-danger">
+        <%= errorlg[0] %> <!-- แสดงข้อความแจ้งเตือน -->
+      </div>
+    <% } %>
+    
 
     <div class="form-floating">
       <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">

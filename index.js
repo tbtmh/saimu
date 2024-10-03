@@ -37,6 +37,11 @@ const templeController = require('./login/templeController');
 const exploreCategories = require('./login/exploreCategories');
 const catbyidController = require('./login/catbyidController');
 
+const savedController = require('./login/savedController');
+const showsp = require('./login/showsp');
+
+
+
 
 
 
@@ -89,11 +94,14 @@ app.get('/categories', exploreCategories);
 app.get('/categories/:id', catbyidController);
 app.get('/temple/:id', templeController);
 
+app.post('/savedplace',authMiddleware, savedController)
+app.get('/sp', showsp);
+
 
 
 
 app.listen(4000, () => {
-    console.log("App listening on port 4000")
+    console.log("http://localhost:4000/")
 })
 
 
