@@ -11,7 +11,7 @@ import scipy.stats as stats
 from vectorizer import TextVectorizer
 
 # Load the data
-df1 = pd.read_csv('../data/dataset01.csv')
+df1 = pd.read_csv('../data/dataset07.csv')
 df2 = pd.read_csv('../data/dataset02.csv')
 df4 = pd.read_csv('../data/dataset04.csv')
 df5 = pd.read_csv('../data/dataset05.csv')
@@ -67,7 +67,7 @@ param_dist = {**param_rf, **param_svc, **param_knn, **param_final}
 random_search = RandomizedSearchCV(
     estimator=clf,
     param_distributions=param_dist,
-    n_iter=20,
+    n_iter=25,
     scoring='accuracy',
     cv=5,
     n_jobs=-1,
