@@ -36,8 +36,8 @@ body {
 }
 
 .alert {
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 264px;
+  
+  
   border-radius: 20px;
   text-align: center;
   color: #ff0f0f;
@@ -70,7 +70,7 @@ body {
     height: 30px;
   }
 
-  .formcontrol, .alert {
+  .formcontrol {
     width: 230px;
     height: 30px;
   }
@@ -92,7 +92,7 @@ body {
     height: 28px;
   }
 
-  .formcontrol, .alert {
+  .formcontrol {
     width: 200px;
     height: 28px;
   }
