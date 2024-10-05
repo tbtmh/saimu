@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
-from pymongo import MongoClient
-from bson.json_util import dumps
+
 
 app = Flask(__name__)
 
