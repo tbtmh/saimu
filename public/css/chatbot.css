@@ -4,29 +4,122 @@ body {
   background-repeat: no-repeat;
   background-size: cover; 
   background-color: #ffffff; 
+ 
   font-family: 'Poppins', sans-serif;
 }
 .head{
   text-align: center;
+  text-align: top;
+  margin-top: -2vh;
+}
+.back{
+  display: flex;
+  margin-left: 2vh;
+  margin-top: 3vh;
+  
 }
 .chat-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: top center;
+  margin-top: 20px;
   
-}
-
-.chatbox {
-  width: 400px;
-  
-  padding: 20px;
   
   
 }
-
 #chatbox-messages {
-  height: 300px;
+  align-items: center;
+  width: 40vh;
+  height: 80vh;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  
+}
+
+.message {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 4px 12px rgb(0, 0, 0,2); 
+}
+
+
+.user-message {
+  background-color: #EADDFF;
+  text-align: right;
+  font-family: 'Poppins', sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin-top:  15px;
+  padding-right: 20px;
+}
+
+.bot-message {
+  background-color: #F5F5F5;
+  font-family: 'Poppins', sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
+  border-radius: 20px;
+  text-align: left;
+  margin-top:  15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.sendbox{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  width: 512px;
+  height: 55px;
+  border-radius: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
+  color: black;
+  border-color: #C4C4C4;
+  background-color: #F5F5F5 ;
+  
+  
+}
+.sendbox[type=text]{
+  padding-left: 20px;
+}
+
+.send{
+  display: flex;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    margin-left: 70vh;
+    margin-top: -6vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.send:hover {
+  background-color: #EADDFF;
+}
+@media screen and (max-width: 1024px) {
+.head{
+  text-align: center;
+  text-align: top;
+  margin-top: -2vh;
+}
+.back{
+  display: flex;
+  margin-left: 2vh;
+  margin-top: 3vh;
+  
+}
+.chat-container {
+  display: flex;
+  justify-content: center;
+  align-items: top center;
+  margin-top: 20px;
+  
+  
+  
+}
+#chatbox-messages {
+  align-items: center;
+  width: 40vh;
+  height: 80vh;
   overflow-y: auto;
   margin-bottom: 10px;
 }
@@ -41,33 +134,201 @@ body {
   background-color: #EADDFF;
   text-align: right;
   font-family: 'Poppins', sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
   border-radius: 20px;
 }
 
 .bot-message {
   background-color: #F5F5F5;
   font-family: 'Poppins', sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
   border-radius: 20px;
   text-align: left;
 }
 .sendbox{
-  width: 312px;
-  height: 35px;
-  border-radius: 20px;
+  
+  width: 512px;
+  height: 55px;
+  border-radius: 40px;
   font-family: 'Poppins', sans-serif;
+  font-family: "Bai Jamjuree", sans-serif;
   color: black;
   border-color: #C4C4C4;
   background-color: #F5F5F5 ;
+  
+}
+.sendbox[type=text]{
+  padding-left: 20px;
 }
 .send{
-  
+  display: flex;
     color: white;
     border: none;
     border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    margin-left: 5px;
+    
+    margin-left: 40vh;
+    margin-top: -3.5vh;
+    
 }
 .send:hover {
   background-color: #EADDFF;
 }
+}
+@media screen and (max-width: 480px) {
+  .head{
+    text-align: center;
+    text-align: top;
+    margin-top: -2vh;
+  }
+  .back{
+    display: flex;
+    margin-left: 2vh;
+    margin-top: 3vh;
+    
+  }
+  .chat-container {
+    display: flex;
+    justify-content: center;
+    align-items: top center;
+    margin-top: 20px;
+    
+    
+    
+  }
+  #chatbox-messages {
+    align-items: center;
+    width: 40vh;
+    height: 80vh;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .user-message {
+    background-color: #EADDFF;
+    text-align: right;
+    font-family: 'Poppins', sans-serif;
+    font-family: "Bai Jamjuree", sans-serif;
+    border-radius: 20px;
+  }
+  
+  .bot-message {
+    background-color: #F5F5F5;
+    font-family: 'Poppins', sans-serif;
+    font-family: "Bai Jamjuree", sans-serif;
+    border-radius: 20px;
+    text-align: left;
+  }
+  .sendbox{
+    
+    width: 312px;
+    height: 35px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-family: "Bai Jamjuree", sans-serif;
+    color: black;
+    border-color: #C4C4C4;
+    background-color: #F5F5F5 ;
+    
+  }
+  .sendbox[type=text]{
+    padding-left: 20px;
+  }
+  .send{
+    display: flex;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      margin-left: 30vh;
+      margin-top: -3.75vh;
+      
+  }
+  .send:hover {
+    background-color: #EADDFF;
+  }
+  }
+  @media screen and (max-width: 390px) {
+    .head{
+      text-align: center;
+      text-align: top;
+      margin-top: -2vh;
+    }
+    .back{
+      display: flex;
+      margin-left: 2vh;
+      margin-top: 3vh;
+      
+    }
+    .chat-container {
+      display: flex;
+      justify-content: center;
+      align-items: top center;
+      margin-top: 20px;
+      
+      
+      
+    }
+    #chatbox-messages {
+      align-items: center;
+      width: 40vh;
+      height: 80vh;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    
+    .message {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+    
+    .user-message {
+      background-color: #EADDFF;
+      text-align: right;
+      font-family: 'Poppins', sans-serif;
+      font-family: "Bai Jamjuree", sans-serif;
+      border-radius: 20px;
+    }
+    
+    .bot-message {
+      background-color: #F5F5F5;
+      font-family: 'Poppins', sans-serif;
+      font-family: "Bai Jamjuree", sans-serif;
+      border-radius: 20px;
+      text-align: left;
+    }
+    .sendbox{
+      
+      width: 312px;
+      height: 35px;
+      border-radius: 20px;
+      font-family: 'Poppins', sans-serif;
+      font-family: "Bai Jamjuree", sans-serif;
+      color: black;
+      border-color: #C4C4C4;
+      background-color: #F5F5F5 ;
+      
+    }
+    .sendbox[type=text]{
+      padding-left: 20px;
+    }
+    .send{
+      display: flex;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        margin-left: 38vh;
+        margin-top: -5vh;
+        
+    }
+    .send:hover {
+      background-color: #EADDFF;
+    }
+    }
+    
+   
