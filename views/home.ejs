@@ -12,7 +12,6 @@
     <title>Mamoo Homepage</title>
   </head>
 
-  <body>
   <!-- categories -->
 <!-- nav bar
   <nav aria-label="breadcrumb">
@@ -23,36 +22,6 @@
     </ol>
   </nav>
 -->
-  <!-- show saved place start -->
-
-  <h1 class="pb-4">Saved Place</h1>
-
-  <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4"></div>
-
-    <% if (savedplaceLimited.length > 0) { %> <!-- เช็คว่า savedplaceLimited มีข้อมูล -->
-      <% savedplaceLimited.forEach(function(temple, index) { %> <!-- ลูปผ่าน savedplaceLimited -->
-        <a href="/temple/<%- temple._id %>" class="col text-center category__link">
-          <div class="category__img shadow">
-            <img src="/img/หน้าเปล่า.png" alt="<%- temple.สถานที่ %>" loading="lazy"> <!-- แสดงรูปภาพ -->
-          </div>
-          <div class="pt-1"><%- temple.สถานที่ %></div> <!-- แสดงชื่อสถานที่ -->
-        </a>
-      <% }) %>
-    <% } else { %>
-      <p>No items found.</p>
-    <% } %> 
-  </div>
-
-      <a href="/sp" class="col text-center category__link">
-        <div class="category__img shadow">
-          <img src="/img/หน้าเปล่า.png" alt="View All Saved Place" loading="lazy">
-        </div>
-        <div class="pt-1">View All</div>
-      </a>
-
-    </div>
-
-  <!--  show saved place end -->
 
   <body>
     <!--Body's Ing-->
@@ -86,25 +55,26 @@
       <div class="row" style="margin-top: 2vh;">
         <div class="col-md-12">
           <h3>Saved Places</h3>
-          <div class="image-container">
             <% if (savedplaceLimited.length > 0) { %> <!-- เช็คว่า savedplaceLimited มีข้อมูล -->
-              <% savedplaceLimited.forEach(function(temple, index) { %> <!-- ลูปผ่าน savedplaceLimited -->
-                <a href="/temple/<%- temple._id %>" class="col text-center category__link">
-                  <div class="category__img shadow">
-                    <img src="/img/หน้าเปล่า.png" alt="<%- temple.สถานที่ %>" loading="lazy"> <!-- แสดงรูปภาพ -->
-                  </div>
-                  <div class="pt-1"><%- temple.สถานที่ %></div> <!-- แสดงชื่อสถานที่ -->
-                </a>
-              <% }) %>
+              <a href="/sp"><p>ดูทั้งหมด</p></a>
+              <div class="image-container">
+                <% savedplaceLimited.forEach(function(temple, index) { %> <!-- ลูปผ่าน savedplaceLimited -->
+                  <a href="/temple/<%- temple._id %>" class="col text-center category__link">
+                    <div class="category__img shadow">
+                      <img src="/img/หน้าเปล่า.png" alt="<%- temple.สถานที่ %>" loading="lazy"> <!-- แสดงรูปภาพ -->
+                    </div>
+                    <div class="pt-1"><%- temple.สถานที่ %></div> <!-- แสดงชื่อสถานที่ -->
+                  </a>
+                <% }) %>
+              </div>
             <% } else { %>
               <p>No items found.</p>
             <% } %>
-          </div>
         </div>
       </div>
 
       <!-- Section: Chatbot -->
-      <div class="row" style="margin-top: 20vh;">
+      <div class="row" style="margin-top: 2vh;">
           <div class="col-md-12 text-end">
               <a href="/chatbot" class="floating-button">
                   <img src="../img/chatbot.png" alt="Chatbot">
@@ -112,22 +82,18 @@
           </div>
       </div>
     </div>
-  </body>
 
-  <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-    <!-- Back to top -->
+     <!-- Back to top -->
+     <div class="row" style="margin-bottom: 1vh;">
      <p><a class="btn-container" href="#">↑ Back to top ↑</a></p>
-
-    <!-- Log out button -->
-    <div class="row">
-      <div class="btn-container">
-        <% if (loggedIn) { %>
-            <a class="custom-btn custom-btn-small" href="/logout">Log out</a>
-        <% } %>
-      </div>
-    </div>
-  </footer>
-  
+      <!-- Log out button -->
+     <div class="row" style="margin-bottom: 0.5vh;">
+       <div class="btn-container">
+         <% if (loggedIn) { %>
+             <a class="custom-btn custom-btn-small" href="/logout">Log out</a>
+         <% } %>
+       </div>
+     </div>
   </body>
 </html>
 
