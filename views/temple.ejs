@@ -1,77 +1,95 @@
-<% if(temple != null ) { %>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/home">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page"><%- temple.สถานที่ %></li>
-      <li class="breadcrumb-item"><a href="/categories/<%- temple.หมวดหมู่ %>">ย้อนกลับ</a></li>
-    </ol>
-  </nav>
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Mamoo</title>
+  </head>
 
-  <% 
-  function convertGoogleDriveLink(driveLink) {
-    if (!driveLink) {
-      return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
-    }
-    const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
-    return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
-  }
-  const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่);
-  %>
-
-
-
-
-  <div class="col-12 col-md-4">
-    <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- convertedLink %>" loading="lazy">
-  </div>
-
-  
-  <div class="col-12 col-md-4">
-    <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- temple.ภาพสถานที่ %>" loading="lazy">
-  </div>
-
-  <form action="/savedplace" method="POST">
+  <body>
+    <% if(temple != null ) { %>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><%- temple.สถานที่ %></li>
+          <li class="breadcrumb-item"><a href="/categories/<%- temple.หมวดหมู่ %>">ย้อนกลับ</a></li>
+        </ol>
+      </nav>
     
-    <div class="form-floating">
+      <% 
+      function convertGoogleDriveLink(driveLink) {
+        if (!driveLink) {
+          return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
+        }
+        const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
+        return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
+      }
+      const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่);
+      %>
+    
+    
+    
+    
+      <div class="col-12 col-md-4">
+        <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- convertedLink %>" loading="lazy">
+      </div>
+    
       
-      <input type="hidden" name="templeId" value= "<%= temple._id %>" >
-    </div>
+      <div class="col-12 col-md-4">
+        <img src="<%= convertedLink %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- temple.ภาพสถานที่ %>" loading="lazy">
+      </div>
     
-    <button class="btn btn-primary w-20 py-2" type="submit">saved</button>
-    
-  </form>
-
-
-
-
-<!-- show added/removed msg -->
-<% if (msg && msg.length > 0) { %>
-  <div class="alert alert-success">
-    <%= msg[0] %> 
-  </div>
-<% } %>
-<!-- show added/removed msg -->
-
-
-
-
-
-  <div class="col-12 col-md-8">
-    <div class="row">
-      <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
-      <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
+      <form action="/savedplace" method="POST">
         
-          <h2>รายละเอียด</h2>
-            <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %></p>
-            <p><strong>ที่อยู่:</strong> <%= temple.ที่อยู่ %></p>
-            <p><strong>เวลาเปิดทำการ:</strong> <%= temple.เวลาเปิดทำการ.join(', ') %></p>
-            <p><strong>บูชา:</strong> <%= temple.บูชา %></p>
-
+        <div class="form-floating">
+          
+          <input type="hidden" name="templeId" value= "<%= temple._id %>" >
+        </div>
+        
+        <button class="btn btn-primary w-20 py-2" type="submit">saved</button>
+        
+      </form>
+    
+    
+    
+    
+    <!-- show added/removed msg -->
+    <% if (msg && msg.length > 0) { %>
+      <div class="alert alert-success">
+        <%= msg[0] %> 
+      </div>
+    <% } %>
+    <!-- show added/removed msg -->
+    
+    
+    
+    
+    
+      <div class="col-12 col-md-8">
+        <div class="row">
+          <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
+          <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
+            
+              <h2>รายละเอียด</h2>
+                <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %></p>
+                <p><strong>ที่อยู่:</strong> <%= temple.ที่อยู่ %></p>
+                <p><strong>เวลาเปิดทำการ:</strong> <%= temple.เวลาเปิดทำการ.join(', ') %></p>
+                <p><strong>บูชา:</strong> <%= temple.บูชา %></p>
+    
+          
+        </div>
+      <% } else { %>
+        <p>No item found.</p>
+    <% } %>
       
-    </div>
-  <% } else { %>
-    <p>No item found.</p>
-<% } %>
-  
-
-
+    
+    
+    
+  </body>
+</html>
