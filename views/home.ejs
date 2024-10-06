@@ -65,31 +65,33 @@
 
       <div class="row" style="margin-top: 2vh;">
         <div class="col-md-12">
-          <h3>Saved Places</h3> <!-- ชื่อ Saved Places -->
-          <% if (savedplaceLimited.length > 0) { %> <!-- เช็คว่า savedplaceLimited มีข้อมูล -->
-            <a href="/sp"><p>ดูทั้งหมด</p></a> <!-- ลิงก์ "ดูทั้งหมด" -->
-          <% } %>
+          <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+            <h3 style="display: inline;">Saved Places</h3> <!-- ชื่อ Saved Places -->
+            <% if (savedplaceLimited.length > 0) { %> <!-- เช็คว่า savedplaceLimited มีข้อมูล -->
+              <a href="/sp">ดูทั้งหมด</a> <!-- ลิงก์ "ดูทั้งหมด" -->
+            <% } %>
 
-          <% if (savedplaceLimited.length > 0) { %>
-            <div class="saved-places-list"> <!-- ปรับการจัดเรียง -->
-              <% savedplaceLimited.forEach(function(temple, index) { 
-                const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่); // แปลงลิงก์ Google Drive
-              %>
-                <a href="/temple/<%- temple._id %>" class="saved-place-item d-flex align-items-center">
-                  <div class="category__img-container">
-                    <img src="<%= convertedLink %>" alt="<%- temple.สถานที่ %>" class="category__img shadow" loading="lazy">
-                  </div>
-                  <div class="saved-place-info">
-                    <h5><%- temple.สถานที่ %></h5> <!-- ชื่อสถานที่ -->
-                    <p><strong>หมวดหมู่:</strong> <%- temple.หมวดหมู่ %> </p>
-                    <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %> </p>
-                  </div>
-                </a>
-              <% }) %>
-            </div>
-          <% } else { %>
-            <p>No items found.</p>
-          <% } %>
+            <% if (savedplaceLimited.length > 0) { %>
+              <div class="saved-places-list"> <!-- ปรับการจัดเรียง -->
+                <% savedplaceLimited.forEach(function(temple, index) { 
+                  const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่); // แปลงลิงก์ Google Drive
+                %>
+                  <a href="/temple/<%- temple._id %>" class="saved-place-item d-flex align-items-center">
+                    <div class="category__img-container">
+                      <img src="<%= convertedLink %>" alt="<%- temple.สถานที่ %>" class="category__img shadow" loading="lazy">
+                    </div>
+                    <div class="saved-place-info">
+                      <h5><%- temple.สถานที่ %></h5> <!-- ชื่อสถานที่ -->
+                      <p><strong>หมวดหมู่:</strong> <%- temple.หมวดหมู่ %> </p>
+                      <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %> </p>
+                    </div>
+                  </a>
+                <% }) %>
+              </div>
+            <% } else { %>
+              <p>No items found.</p>
+            <% } %>
+          </div>
         </div>
       </div>
 
