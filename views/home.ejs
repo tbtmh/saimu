@@ -35,7 +35,7 @@
       </div>
 
       <!-- Section: Categories -->
-      <div class="row" style="margin-top: 2vh;">
+      <div class="row" style="margin-top: 20px;">
           <div class="col-md-12">
             <h3>Categories</h3>
               <div class="category-container">
@@ -72,7 +72,7 @@
             <% } %>
 
             <% if (savedplaceLimited.length > 0) { %>
-              <div class="saved-places-list"> <!-- ปรับการจัดเรียง -->
+              <div class="saved-places-list" style="margin-top: 1vh;"> <!-- ปรับการจัดเรียง -->
                 <% savedplaceLimited.forEach(function(temple, index) { 
                   const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่); // แปลงลิงก์ Google Drive
                 %>
