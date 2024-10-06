@@ -13,30 +13,42 @@
   </head>
 
   <body>
-    <!--Menu Bar-->
-    <div class="container">
-      <div class="row" style="margin-top: 10vh;">
-        <% if (temple != null) { %>
-          <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid d-flex justify-content-between align-items-center">
-              <!-- ปุ่มย้อนกลับ -->
-              <a href="/categories/<%- temple.หมวดหมู่ %>" class="btn btn-link">
-                <i class="fas fa-arrow-left"></i> ย้อนกลับ
-              </a>
-        
-              <!-- ชื่อสถานที่ -->
-              <h3 class="navbar-brand mx-auto mb-0 h1 text-center"><%- temple.สถานที่ %></h3>
-        
-              <!-- ปุ่มโฮม -->
-              <a href="/home" class="btn btn-link">
-                <i class="fas fa-home"></i> โฮม
-              </a>
-            </div>
-          </nav>
-        <% } %>
-      </div>
-    </div>
-    
+    <!-- Head Bar -->
+<!-- Head Bar -->
+<div class="container">
+  <div class="row" style="margin-top: 10vh;">
+    <% if (temple != null) { %>
+      <nav class="navbar navbar-light bg-light w-100">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          
+          <!-- ปุ่มย้อนกลับ -->
+          <div style="flex: 1; text-align: left;">
+            <a href="/categories/<%- temple.หมวดหมู่ %>" class="btn btn-link">
+              <img src="../img/back.png" alt="back">
+            </a>
+          </div>
+          
+          <!-- ชื่อสถานที่ -->
+          <div style="flex: 1; text-align: center;">
+            <h3 class="navbar-brand mb-0 h3" style="display: inline;">
+              <%- temple.สถานที่ %>
+            </h3>
+          </div>
+
+          <!-- ปุ่มโฮม -->
+          <div style="flex: 1; text-align: right;">
+            <a href="/home" class="btn btn-link">
+              <img src="../img/home.png" alt="home">
+            </a>
+          </div>
+
+        </div>
+      </nav>
+    <% } %>
+  </div>
+</div>
+
+
     
     <% if(temple != null ) { %>
       <nav aria-label="breadcrumb">
@@ -97,7 +109,7 @@
     
     
       <div class="col-12 col-md-8">
-        <div class="row">
+        <div class="row" style="margin-bottom: 10vh;">
           <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
           <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
             
@@ -113,7 +125,16 @@
         <p>No item found.</p>
     <% } %>
       
-    
+    <!-- Section: Chatbot -->
+    <div class="row" style="margin-top: 2vh;">
+      <div class="col-md-12 text-end">
+          <a href="/chatbot" class="floating-button">
+              <img src="../img/chatbot.png" alt="Chatbot">
+          </a>
+      </div>
+    </div>
+
+
     
     
   </body>
