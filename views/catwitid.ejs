@@ -45,11 +45,15 @@
             }
             const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่);
             %>
-            <a href="/temple/<%= temple._id %>" class="col text-center category__link">
-              <div class="category__img category__img--large shadow">
-                <img src="<%= convertedLink %>" alt="<%= temple.สถานที่ %>" loading="lazy">
+            <a href="/temple/<%- temple._id %>" class="saved-place-item d-flex align-items-center">
+              <div class="category__img-container">
+                <img src="<%= convertedLink %>" alt="<%- temple.สถานที่ %>" class="category__img shadow" loading="lazy">
               </div>
-              <div class="pt-1"><%= temple.สถานที่ %></div>
+              <div class="saved-place-info">
+                <h5><%- temple.สถานที่ %></h5> <!-- ชื่อสถานที่ -->
+                <p><strong>หมวดหมู่:</strong> <%- temple.หมวดหมู่ %> </p>
+                <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %> </p>
+              </div>
             </a>
           <% }) %>
         <% } else { %>
@@ -72,12 +76,18 @@
               }
               const convertedLinkamu = convertGoogleDriveLink(amulet.ภาพ);
               %>
-              <a href="/amulet/<%= amulet._id %>" class="col text-center category__link">
-                <div class="category__img category__img--large shadow">
-                  <img src="<%= convertedLinkamu %>" alt="<%= amulet.ชื่อเครื่องราง %>" loading="lazy">
+              <a href="/amulet/<%= amulet._id %>" class="saved-place-item d-flex align-items-center">
+                <div class="category__img-container">
+                  <img src="<%= convertedLinkamu %>" alt="<%= amulet.ชื่อเครื่องราง %>" class="category__img shadow" loading="lazy">
                 </div>
-                <div class="pt-1"><%= amulet.ชื่อเครื่องราง %></div>
+                <div class="saved-place-info">
+                  <h5><%= amulet.ชื่อเครื่องราง %></h5> <!-- ชื่อสถานที่ -->
+                  <p><strong>ประเภท:</strong> <%- amulet.ประเภทเครื่องราง %> </p>
+                  <p><strong>ความเชื่อ:</strong> <%- amulet.ความเชื่อ %> </p>
+                  <p><strong>วัตถุประสงค์:</strong> <%- amulet.วัตถุประสงค์การใช้งาน %> </p>
+                </div>
               </a>
+              
             <% }) %>
           <% } else { %>
             <p>No amulets found.</p>
@@ -107,6 +117,18 @@
       evt.currentTarget.className += " active";
     }
     </script>
-    
+
+    <!-- Section: Chatbot -->
+    <div class="row" style="margin-top: 2vh;">
+      <div class="col-md-12 text-end">
+          <a href="/chatbot" class="floating-button">
+              <img src="../img/chatbot.png" alt="Chatbot">
+          </a>
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="row" style="margin-bottom: 1vh;">
+      <p><a class="btn-container" href="#">↑ Back to top ↑</a></p>
   </body>
 </html>
