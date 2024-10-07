@@ -141,6 +141,17 @@ body {
   transition: all 0.3s ease; /* ทำให้การเปลี่ยนสีเป็น smooth */
 }
 
+.custom-btn-saved {
+  padding: 10px 20px;
+  border-radius: 20px; /* ทำขอบมน */
+  border: 2px solid #955AB5; /* ขอบสีม่วง */
+  background-color: #955AB5; /* พื้นหลังโปร่งใส */
+  color: white; /* สีของตัวหนังสือ */
+  font-size: 16px;
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+  transition: all 0.3s ease; /* ทำให้การเปลี่ยนสีเป็น smooth */
+}
+
 /* สไตล์เมื่อ hover */
 .custom-btn:hover {
   background-color: #955AB5; /* พื้นหลังสีม่วงเมื่อ hover */
@@ -205,26 +216,6 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* ปุ่มเริ่มต้น */
-.save-button {
-  border: 2px solid #955AB5;   /* สีขอบ */
-  background-color: white;     /* สีพื้นหลัง */
-  color: #757575;              /* สีตัวหนังสือ */
-  border-radius: 20px;         /* ขอบมน */
-  padding: 10px 20px;          /* ขนาดปุ่ม */
-  cursor: pointer;             /* แสดงรูปมือเมื่อ hover */
-  transition: background-color 0.3s ease, color 0.3s ease;  /* เพิ่มการเปลี่ยนแปลงสีแบบ smooth */
-}
-
-/* ปุ่มเมื่อเป็น Saved */
-.save-button.saved {
-  border: 2px solid #955AB5;   /* สีขอบ */
-  background-color: #955AB5;    /* สีพื้นหลัง */
-  color: white              /* สีตัวหนังสือ */
-  border-radius: 20px;         /* ขอบมน */
-  padding: 10px 20px;          /* ขนาดปุ่ม */
 }
 
 .centered-message {

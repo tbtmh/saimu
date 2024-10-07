@@ -71,14 +71,6 @@
     
       <!--Save button-->
       <form action="/savedplace" method="POST">
-        <div class="form-floating">
-          <input type="hidden" name="templeId" value="<%= temple._id %>">
-        </div>
-      
-        <button id="save-btn" class="custom-btn custom-btn-small" type="submit">Save</button>
-      </form>
-
-      <form action="/savedplace" method="POST">
         
         <div class="form-floating">
           
@@ -86,16 +78,12 @@
         </div>
         
         <% if (isSaved) { %>
-          <button class="custom-btn custom-btn-small" type="submit" >Saved</button>
+          <button class="custom-btn-saved custom-btn-small" type="submit" >Saved</button>
         <% } else { %>
           <button class="custom-btn custom-btn-small" type="submit">Save</button>
         <% } %>
         
-        
       </form>
-
-
-
 
       <!-- show added/removed msg -->
       <% if (msg && msg.length > 0) { %>
