@@ -37,7 +37,12 @@
       <input type="hidden" name="templeId" value= "<%= temple._id %>" >
     </div>
     
-    <button class="btn btn-primary w-20 py-2" type="submit">saved</button>
+    <% if (isSaved) { %>
+      <button class="btn btn-success w-20 py-2" type="submit" disabled>Saved</button>
+    <% } else { %>
+      <button class="btn btn-primary w-20 py-2" type="submit">Save</button>
+    <% } %>
+    
     
   </form>
 
