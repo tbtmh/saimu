@@ -69,31 +69,35 @@ body {
 
 .category-container {
     display: flex;            /* ใช้ Flexbox เพื่อจัดเรียงในแนวนอน */
-    justify-content: space-between; /* จัดให้มีช่องว่างระหว่างปุ่ม */
+    justify-content: space-evenly; /* จัดให้มีช่องว่างระหว่างปุ่ม */
     align-items: center;      /* จัดตำแหน่งแนวตั้งของปุ่มให้อยู่ตรงกลาง */
     flex-wrap: wrap;          /* ให้ปุ่มเรียงเป็นแถวใหม่ถ้าหน้าจอแคบ */
-    margin-top: 20px;
+    margin-top: 2vh;
 }
 
 .category-item {
-    text-align: center;       /* จัดข้อความให้อยู่ตรงกลางใต้ปุ่ม */
-    margin: 25 90px;           /* เพิ่มระยะห่างระหว่างแต่ละปุ่ม */
+  width: 100%;               /* ปรับให้กว้างเต็มที่ของคอนเทนเนอร์ */
+    height: auto;             /* ความสูงอัตโนมัติ */
+    max-width: 60px;          /* จำกัดความกว้างสูงสุด */
+    aspect-ratio: 1 / 1;      /* รักษาสัดส่วนเป็นวงกลม (สามารถปรับเปลี่ยนได้) */
+    object-fit: cover;
 }
 
 .category-btn {
-    width: 60px;              /* ขนาดของรูปภาพ */
-    height: 60px;
+    width: 100%;              /* ขนาดของรูปภาพ */
+    height: auto;
+    max-width: 60px;
 }
 
 .category-btn:hover {
     transform: scale(1.1);    /* ขยายรูปภาพเมื่อเลื่อนเมาส์ */
 }
 
-.category-item p {
+/*.category-item p {
     margin-top: 0px;
-    font-size: 14px;          /* ขนาดฟอนต์ของชื่อหมวดหมู่ */
-    color: #333;              /* สีของข้อความ */
-}
+    font-size: 14px;     
+    color: #333;           
+}*/
 
 .image-container {
     display: flex;
