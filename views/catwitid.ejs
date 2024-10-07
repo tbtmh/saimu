@@ -66,9 +66,9 @@
                 <div class="category__img-container">
                   <img src="<%= convertedLink %>" alt="<%- temple.สถานที่ %>" class="category__img shadow" loading="lazy">
                 </div>
-                <div class="saved-place-info">
+                <div class="saved-place-info" style="width: 100%;">
                   <div class="d-flex justify-content-between align-items-center w-100">
-                    <div style="flex: 1; text-align: left;">
+                    <div style="text-align: left;">
                       <h5><%- temple.สถานที่ %></h5> <!-- ชื่อสถานที่ -->
                     </div>
                     
@@ -76,10 +76,16 @@
                       <!--Save icon-->
                       <form action="/savedplace" method="POST" style="display:inline;">
                         <input type="hidden" name="templeId" value="<%= temple._id %>">
-                        <button class="btn-save" type="submit" style="background:none; border:none; padding: 0;">
-                          <i class="bi <%= temple.isSaved ? 'bi-bookmark-fill' : 'bi-bookmark' %>"></i>
-
-                        </button>
+                        <% if (isSaved) { %>
+                          <button class="btn-save custom-btn-small" type="submit" style="background:none; border:none; padding: 0;">
+                            <i class="bi bi-bookmark-fill"></i> <!-- ไอคอนบุ๊คมาร์คแบบเติม -->
+                          </button>
+                        <% } else { %>
+                          <button class="btn-save custom-btn-small" type="submit" style="background:none; border:none; padding: 0;">
+                            <i class="bi bi-bookmark"></i> <!-- ไอคอนบุ๊คมาร์คแบบปกติ -->
+                          </button>
+                        <% } %>
+                        
                       </form>
                     </div>
                     
@@ -90,15 +96,13 @@
                   <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %> </p>
                 </div>
               </a>
-            <% }) %>
-          </div>
-            <% } else { %>
-              <p>No temples found.</p>
-            <% } %>
-            </div>
-            
-          </div>
+              <% }) %>
           
+              <% } else { %>
+                <p>No temples found.</p>
+              <% } %>
+            </div>
+          </div>
         </div>
       </div>
     
@@ -138,30 +142,8 @@
               
           </div>
         </div>
+      </div>
         
-        <script>
-          function openCity(evt, cityName) {
-            var i, tabcontent, tablinks;
-
-            // ซ่อนทุก tabcontent
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-              tabcontent[i].style.display = "none";
-            }
-
-            // ลบ class "active" ออกจากปุ่มทุกปุ่ม
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-              tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // แสดงเนื้อหาของแท็บที่ถูกเลือก และเพิ่ม class "active" ให้ปุ่มที่ถูกเลือก
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-          }
-
-        </script>
-
       <!-- Section: Chatbot -->
       <div class="row" style="margin-top: 2vh;">
         <div class="col-md-12 text-end">
@@ -176,5 +158,29 @@
         <p><a class="btn-container" href="#">↑ Back to top ↑</a></p>
       </div>
     </div>
+
+    <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+
+        // ซ่อนทุก tabcontent
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // ลบ class "active" ออกจากปุ่มทุกปุ่ม
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // แสดงเนื้อหาของแท็บที่ถูกเลือก และเพิ่ม class "active" ให้ปุ่มที่ถูกเลือก
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+    </script>
+
   </body>
 </html>
