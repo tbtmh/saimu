@@ -220,9 +220,11 @@ form {
 
 /* ปุ่มเมื่อเป็น Saved */
 .save-button.saved {
-  background-color: #955AB5;   /* เปลี่ยนสีพื้นหลัง */
-  color: white;                /* เปลี่ยนสีตัวหนังสือ */
-  border: 2px solid #955AB5;   /* สีขอบเหมือนเดิม */
+  border: 2px solid #955AB5;   /* สีขอบ */
+  background-color: #955AB5;    /* สีพื้นหลัง */
+  color: white              /* สีตัวหนังสือ */
+  border-radius: 20px;         /* ขอบมน */
+  padding: 10px 20px;          /* ขนาดปุ่ม */
 }
 
 .centered-message {
