@@ -69,6 +69,15 @@
         </div>  
       </div>
     
+      <!--Save button-->
+      <form action="/savedplace" method="POST">
+        <div class="form-floating">
+          <input type="hidden" name="templeId" value="<%= temple._id %>">
+        </div>
+      
+        <button id="save-btn" class="custom-btn custom-btn-small" type="submit">Save</button>
+      </form>
+
       <form action="/savedplace" method="POST">
         
         <div class="form-floating">
@@ -82,15 +91,11 @@
     
     <!-- show added/removed msg -->
     <% if (msg && msg.length > 0) { %>
-      <div class="alert alert-success">
+      <div class="alert alert-success centered-message">
         <%= msg[0] %> 
       </div>
     <% } %>
     <!-- show added/removed msg -->
-    
-    
-    
-    
     
       <div class="row" style="margin-top: 2vh;">
         <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
