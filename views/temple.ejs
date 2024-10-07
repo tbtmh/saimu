@@ -78,54 +78,53 @@
         <button id="save-btn" class="custom-btn custom-btn-small" type="submit">Save</button>
       </form>
 
-      <form action="/savedplace" method="POST">
-        
-        <div class="form-floating">
-          
-          <input type="hidden" name="templeId" value= "<%= temple._id %>" >
-        </div>
-        
-        <button class="btn btn-primary w-20 py-2" type="submit">saved</button>
-        
-      </form>
+  <form action="/savedplace" method="POST">
     
-    <!-- show added/removed msg -->
-    <% if (msg && msg.length > 0) { %>
-      <div class="alert alert-success centered-message">
-        <%= msg[0] %> 
-      </div>
-    <% } %>
-    <!-- show added/removed msg -->
-    
-      <div class="row" style="margin-top: 2vh;">
-        <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
-        <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
-            
-            <h2>รายละเอียด</h2>
-              <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %></p>
-              <p><strong>ที่อยู่:</strong> <%= temple.ที่อยู่ %></p>
-              <p><strong>เวลาเปิดทำการ:</strong> <%= temple.เวลาเปิดทำการ.join(', ') %></p>
-              <p><strong>บูชา:</strong> <%= temple.บูชา %></p>
-    
-          
-      </div>
-      <% } else { %>
-        <p>No item found.</p>
-    <% } %>
-
-    <!-- Section: Chatbot -->
-    <div class="row" style="margin-top: 2vh;">
-      <div class="col-md-12 text-end">
-          <a href="/chatbot" class="floating-button">
-              <img src="../img/chatbot.png" alt="Chatbot">
-          </a>
-      </div>
-    </div>
-
-    <!-- Back to top -->
-    <div class="row" style="margin-top: 10vh;">
-      <p><a class="btn-container" href="#">↑ Back to top ↑</a></p>
+    <div class="form-floating">
+      
+      <input type="hidden" name="templeId" value= "<%= temple._id %>" >
     </div>
     
-  </body>
-</html>
+    <% if (isSaved) { %>
+      <button class="btn btn-success w-20 py-2" type="submit" disabled>Saved</button>
+    <% } else { %>
+      <button class="btn btn-primary w-20 py-2" type="submit">Save</button>
+    <% } %>
+    
+    
+  </form>
+
+
+
+
+<!-- show added/removed msg -->
+<% if (msg && msg.length > 0) { %>
+  <div class="alert alert-success">
+    <%= msg[0] %> 
+  </div>
+<% } %>
+<!-- show added/removed msg -->
+
+
+
+
+
+  <div class="col-12 col-md-8">
+    <div class="row">
+      <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
+      <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
+        
+          <h2>รายละเอียด</h2>
+            <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %></p>
+            <p><strong>ที่อยู่:</strong> <%= temple.ที่อยู่ %></p>
+            <p><strong>เวลาเปิดทำการ:</strong> <%= temple.เวลาเปิดทำการ.join(', ') %></p>
+            <p><strong>บูชา:</strong> <%= temple.บูชา %></p>
+
+      
+    </div>
+  <% } else { %>
+    <p>No item found.</p>
+<% } %>
+  
+
+
