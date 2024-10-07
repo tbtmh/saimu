@@ -13,106 +13,116 @@
   </head>
 
   <body>
-  <!-- Head Bar -->
-  <div class="container">
-    <div class="row" style="margin-top: 10vh;">
-      <% if (temple != null) { %>
-        <nav class="navbar navbar-light bg-light w-100">
-          <div class="d-flex justify-content-between align-items-center w-100">
-            
-            <!-- ปุ่มย้อนกลับ -->
-            <div style="flex: 1; text-align: left;">
-              <a href="/categories/<%- temple.หมวดหมู่ %>" class="btn btn-link">
-                <img src="../img/back.png" alt="back">
-              </a>
-            </div>
-            
-            <!-- ชื่อสถานที่ -->
-            <div style="flex: 1; text-align: center;">
-              <h3 class="navbar-brand mb-0 h3" style="display: inline;">
-                <%- temple.สถานที่ %>
-              </h3>
-            </div>
+    <!-- Head Bar -->
+    <div class="container">
+      <div class="row" style="margin-top: 10vh;">
+        <% if (temple != null) { %>
+          <nav class="navbar navbar-light bg-light w-100">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              
+              <!-- ปุ่มย้อนกลับ -->
+              <div style="flex: 1; text-align: left;">
+                <a href="/categories/<%- temple.หมวดหมู่ %>" class="btn btn-link">
+                  <img src="../img/back.png" alt="back">
+                </a>
+              </div>
+              
+              <!-- ชื่อสถานที่ -->
+              <div style="flex: 1; text-align: center;">
+                <h3 class="navbar-brand mb-0 h3" style="display: inline;">
+                  <%- temple.สถานที่ %>
+                </h3>
+              </div>
 
-            <!-- ปุ่มโฮม -->
-            <div style="flex: 1; text-align: right;">
-              <a href="/home" class="btn btn-link">
-                <img src="../img/home.png" alt="home">
-              </a>
-            </div>
+              <!-- ปุ่มโฮม -->
+              <div style="flex: 1; text-align: right;">
+                <a href="/home" class="btn btn-link">
+                  <img src="../img/home.png" alt="home">
+                </a>
+              </div>
 
-          </div>
-        </nav>
-      <% } %>
-    </div>
-    
-    <!--convert link-->
-    <% if(temple != null ) { %>
-      <% 
-      function convertGoogleDriveLink(driveLink) {
-        if (!driveLink) {
-          return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
-        }
-        const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
-        return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
-      }
-      const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่);
-      %>
-    
-      <div class="row" style="margin-top: 2vh;">
-        <div class="col-12 col-md-4 d-flex justify-content-center">
-          <img src="<%= convertedLink %>" 
-               class="img-fluid rounded shadow-lg" 
-               style="width: auto; border-radius: 15px;" 
-               alt="<%- convertedLink %>" 
-               loading="lazy">
-        </div>  
-      </div>
-    
-      <!--Save button-->
-      <form action="/savedplace" method="POST">
-        
-        <div class="form-floating">
-          
-          <input type="hidden" name="templeId" value= "<%= temple._id %>" >
-        </div>
-        
-        <% if (isSaved) { %>
-          <button class="custom-btn-saved custom-btn-small" type="submit" >Saved</button>
-        <% } else { %>
-          <button class="custom-btn custom-btn-small" type="submit">Save</button>
+            </div>
+          </nav>
         <% } %>
-        
-      </form>
-
-      <!-- show added/removed msg -->
-      <% if (msg && msg.length > 0) { %>
-        <div class="alert alert-success centered-message">
-          <%= msg[0] %> 
-        </div>
-      <% } %>
-      <!-- show added/removed msg -->
-
-
-
-
-
-  <div class="col-12 col-md-8">
-    <div class="row">
-      <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
-      <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
-        
-          <h2>รายละเอียด</h2>
-            <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %></p>
-            <p><strong>ที่อยู่:</strong> <%= temple.ที่อยู่ %></p>
-            <p><strong>เวลาเปิดทำการ:</strong> <%= temple.เวลาเปิดทำการ.join(', ') %></p>
-            <p><strong>บูชา:</strong> <%= temple.บูชา %></p>
-
+      </div>
       
+      <!--convert link-->
+      <% if(temple != null ) { %>
+        <% 
+        function convertGoogleDriveLink(driveLink) {
+          if (!driveLink) {
+            return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
+          }
+          const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
+          return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
+        }
+        const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่);
+        %>
+      
+        <div class="row" style="margin-top: 2vh;">
+          <div class="col-12 col-md-4 d-flex justify-content-center">
+            <img src="<%= convertedLink %>" 
+                class="img-fluid rounded shadow-lg" 
+                style="width: auto; border-radius: 15px;" 
+                alt="<%- convertedLink %>" 
+                loading="lazy">
+          </div>  
+        </div>
+      
+        <!--Save button-->
+        <form action="/savedplace" method="POST">
+          
+          <div class="form-floating">
+            
+            <input type="hidden" name="templeId" value= "<%= temple._id %>" >
+          </div>
+          
+          <% if (isSaved) { %>
+            <button class="custom-btn-saved custom-btn-small" type="submit" >Saved</button>
+          <% } else { %>
+            <button class="custom-btn custom-btn-small" type="submit">Save</button>
+          <% } %>
+          
+        </form>
+
+        <!-- show added/removed msg -->
+        <% if (msg && msg.length > 0) { %>
+          <div class="alert alert-success centered-message">
+            <%= msg[0] %> 
+          </div>
+        <% } %>
+        <!-- show added/removed msg -->
+
+        <!--Description section-->
+        <div class="col-12 col-md-8">
+          <div class="row">
+            <div class="col-12"><h1><%- temple.สถานที่ %></h1></div>
+            <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %></div>
+              
+                <h2>รายละเอียด</h2>
+                  <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %></p>
+                  <p><strong>ที่อยู่:</strong> <%= temple.ที่อยู่ %></p>
+                  <p><strong>เวลาเปิดทำการ:</strong> <%= temple.เวลาเปิดทำการ.join(', ') %></p>
+                  <p><strong>บูชา:</strong> <%= temple.บูชา %></p>
+        </div>
+          <% } else { %>
+            <p>No item found.</p>
+          <% } %>
+
+        <!-- Back to top -->
+        <div class="row" style="margin-bottom: 1vh;">
+          <p><a class="btn-container" href="#">↑ Back to top ↑</a></p>
+        </div>
+        <!-- Section: Chatbot -->
+      <div class="row" style="margin-top: 2vh;">
+        <div class="col-md-12 text-end">
+            <a href="/chatbot" class="floating-button">
+                <img src="../img/chatbot.png" alt="Chatbot">
+            </a>
+        </div>
+      </div>
     </div>
-  <% } else { %>
-    <p>No item found.</p>
-<% } %>
-  
+  </body>
+</html>
 
 
