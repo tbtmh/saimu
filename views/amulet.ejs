@@ -15,16 +15,15 @@
   </head>
 
   <body>
-    <!-- Head Bar -->
     <div class="container">
       <div class="row" style="margin-top: 5vh;">
-        <% if (temple != null) { %>
+        <% if(amulet != null ) { %>
           <nav class="navbar navbar-light w-100">
             <div class="d-flex justify-content-between align-items-center w-100">
               
               <!-- ปุ่มย้อนกลับ -->
               <div style="flex: 1; text-align: left;">
-                <a href="/categories/<%- temple.หมวดหมู่ %>" class="btn btn-link">
+                <a href="/categories/<%- amulet.หมวดหมู่ %>" class="btn btn-link">
                   <img src="../img/back.png" alt="back">
                 </a>
               </div>
@@ -32,7 +31,7 @@
               <!-- ชื่อสถานที่ -->
               <div style="flex: 1; text-align: center;">
                 <h3 class="navbar-brand mb-0 h3">
-                  <%- temple.สถานที่ %>
+                  <%- amulet.ชื่อเครื่องราง %>
                 </h3>
               </div>
 
@@ -47,68 +46,51 @@
           </nav>
         <% } %>
       </div>
-      
-      <!--convert link-->
-      <% if(temple != null ) { %>
+      <% if(amulet != null ) { %>
         <% 
-        function convertGoogleDriveLink(driveLink) {
-          if (!driveLink) {
-            return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
+          function convertGoogleDriveLink(driveLink) {
+            if (!driveLink) {
+              return ''; // ถ้าไม่มีลิงก์ ส่งค่ากลับเป็นสตริงว่าง
+            }
+            const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
+            return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
           }
-          const match = driveLink.match(/[-\w]{25,}/); // ดึง FILE_ID ออกจากลิงก์
-          return match ? `https://drive.google.com/thumbnail?id=${match[0]}` : driveLink;
-        }
-        const convertedLink = convertGoogleDriveLink(temple.ภาพสถานที่);
-        %>
-      
-        <div class="row" style="margin-top: 2vh;">
-          <div class="d-flex justify-content-center align-items-center">
-            <img src="<%= convertedLink %>"
-                 class="img-fluid rounded shadow-lg"
-                 style="width: 75%;"
-                 alt="<%- convertedLink %>" loading="lazy">
-          </div>  
-        </div>
-      
-        <!--Save button-->
-        <form action="/savedplace" method="POST" style="margin-top: 2vh;">
-          
-          <div class="form-floating">
-            
-            <input type="hidden" name="templeId" value= "<%= temple._id %>" >
-          </div>
-          
-          <% if (isSaved) { %>
-            <button class="custom-btn-saved custom-btn-small" type="submit" >Saved</button>
-          <% } else { %>
-            <button class="custom-btn custom-btn-small" type="submit">Save</button>
-          <% } %>
-          
-        </form>
+          const convertedLink = convertGoogleDriveLink(amulet.ภาพ);
+          %>
 
-        <!-- show added/removed msg -->
-        <% if (msg && msg.length > 0) { %>
-          <div class="alert alert-success centered-message" style="margin-top: 1vh;">
-            <%= msg[0] %> 
+          <!--Pic Section-->
+          <div class="row" style="margin-top: 3vh;">
+            <div class="d-flex justify-content-center align-items-center">
+              <img src="<%= convertedLink %>"
+                   class="img-fluid rounded shadow-lg"
+                   style="width: 75%;"
+                   alt="<%- convertedLink %>" loading="lazy">
+            </div>  
           </div>
-        <% } %>
-        <!-- show added/removed msg -->
 
-        <!--Description section-->
-        <div class="container-fluid" style="margin-top: 3vh;"> <!-- ใช้ container-fluid เพื่อให้คอนเทนเนอร์ขยายเต็มจอ -->
-          <div class="row">
-            <div class="col-12">
-              <h1><%- temple.สถานที่ %></h1>
+          <!--Description section-->
+          <div class="container-fluid" style="margin-top: 3vh;">
+            <div class="row">
+              <div class="col-12">
+                <h1><%- amulet.ชื่อเครื่องราง %></h1>
             </div>
+
             <div class="col-12 mb-4">
-              <i class="bi bi-tag"></i> <%- temple.หมวดหมู่ %>
+              <i class="bi bi-tag"></i> <%- amulet.หมวดหมู่ %>
             </div>
+
             <div class="col-12">
               <h2>รายละเอียด</h2>
-              <p><strong>จุดเด่น:</strong> <%= temple.จุดเด่น %></p>
-              <p><strong>ที่อยู่:</strong> <%= temple.ที่อยู่ %></p>
-              <p><strong>เวลาเปิดทำการ:</strong> <%= temple.เวลาเปิดทำการ.join(', ') %></p>
-              <p><strong>บูชา:</strong> <%= temple.บูชา %></p>
+              <p><strong>พิกัดขาย:</strong> <%= amulet.พิกัดขาย %></p>
+              <p><strong>ประเภทเครื่องราง:</strong> <%= amulet.ประเภทเครื่องราง %></p>
+              <p><strong>ความเชื่อ:</strong> <%= amulet.ความเชื่อ %></p>
+              <p><strong>วัสดุที่ใช้:</strong> <%= amulet.วัสดุที่ใช้ %></p>
+              <p><strong>ปีที่สร้าง:</strong> <%= amulet.ปีที่สร้าง %></p>
+              <p><strong>พิธีปลุกเสก:</strong> <%= amulet.พิธีปลุกเสก %></p>
+              <p><strong>วัตถุประสงค์การใช้งาน:</strong> <%= amulet.วัตถุประสงค์การใช้งาน %></p>
+              <p><strong>ราคาโดยประมาณ:</strong> <%= amulet.ราคาโดยประมาณ %></p>
+              <p><strong>ความนิยม:</strong> <%= amulet.ความนิยม %></p>
+              <p><strong>ความเกี่ยวข้องกับบุคคลสำคัญ:</strong> <%= amulet.ความเกี่ยวข้องกับบุคคลสำคัญ %></p>
             </div>
           </div>
         </div>
@@ -135,3 +117,5 @@
 </html>
 
 
+  
+  
