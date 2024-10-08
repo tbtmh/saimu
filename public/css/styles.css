@@ -1,5 +1,5 @@
 
-<<<<<<< HEAD
+
 
 body {
   background-image: url('../element/Rectangle 6.png');
@@ -10,7 +10,8 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-=======
+
+
 /*body {
   background-image: url("/img/i-like-food.svg");
   background-color: rgb(243,243,243);
@@ -283,4 +284,7 @@ form {
 .btn-save:hover {
   color: #757575; /* เปลี่ยนสีเมื่อ hover */
 }
+<<<<<<< HEAD
 >>>>>>> 79a6d1d16d053bb09e2c43f4c290e0d7d5fb0ed9
+=======
+>>>>>>> dream
