@@ -76,7 +76,7 @@
                       <!--Save icon-->
                       <form action="/savedplace" method="POST" style="display:inline;">
                         <input type="hidden" name="templeId" value="<%= temple._id %>">
-                        <% if (isSaved) { %>
+                        <% if ( temple.isSaved) { %>
                           <button class="btn-save custom-btn-small" type="submit" style="background:none; border:none; padding: 0;">
                             <i class="bi bi-bookmark-fill"></i> <!-- ไอคอนบุ๊คมาร์คแบบเติม -->
                           </button>
