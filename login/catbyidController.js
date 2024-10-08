@@ -7,6 +7,8 @@ module.exports = async (req, res) => {
   try {
     let categoryId = req.params.id;
     const limitNumber = 20;
+    const userId = req.session.userId;
+
 
     let isSaved = false;
     if (userId) {
