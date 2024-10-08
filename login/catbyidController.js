@@ -9,28 +9,31 @@ module.exports = async (req, res) => {
     const limitNumber = 20;
     const userId = req.session.userId;
 
-
-    let isSaved = false;
+    let savedTempleIds = [];
     if (userId) {
       // ดึงข้อมูลผู้ใช้
       const user = await User.findById(userId);
       if (user && user.savedplace) {
-        // ตรวจสอบว่า templeId นี้เคยถูกบันทึกหรือยัง
-        isSaved = user.savedplace.some(id => id.toString() === templeId);
+        // ดึงเฉพาะ templeId ที่บันทึกไว้ใน savedplace
+        savedTempleIds = user.savedplace.map(id => id.toString());
       }
     }
-    
-    
+
     // ดึงข้อมูลแยกกันระหว่าง Temple และ Amulet
     const categoryById = await Temple.find({ 'หมวดหมู่': categoryId }).limit(limitNumber);
     const categoryByIdamu = await Amulet.find({ 'หมวดหมู่': categoryId }).limit(limitNumber);
 
+    // เพิ่มฟิลด์ isSaved ในแต่ละวัด
+    const templesWithSavedStatus = categoryById.map(temple => ({
+      ...temple._doc,
+      isSaved: savedTempleIds.includes(temple._id.toString())
+    }));
+
     res.render('catwitid', { 
-      categoryById: categoryById,
-      categoryByIdamu: categoryByIdamu,
-      isSaved
+      categoryById: templesWithSavedStatus, // ส่งข้อมูลที่มี isSaved
+      categoryByIdamu: categoryByIdamu
     });
   } catch (error) {
-    res.status(500).send({ message: error.message || "Error Occured" });
+    res.status(500).send({ message: error.message || "Error Occurred" });
   }
 };
