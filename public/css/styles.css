@@ -1,11 +1,273 @@
 
+/*body {
+  background-image: url("/img/i-like-food.svg");
+  background-color: rgb(243,243,243);
+}
+*/
+a { color: var(--bs-dark); }
 
-body {
-  background-image: url('../element/Rectangle 6.png');
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover; 
-  background-color: #ffffff; 
-  font-family: 'Poppins', sans-serif;
+
+/* Category Card */
+.category__link {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  transition: 250ms all;
 }
 
+.category__link:hover {
+  transform: scale(1.1);
+}
+
+.category__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,.16);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.category__img--large {
+  height: 330px;
+}
+
+.category__img img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ing's style */
+body {
+  background-image: url('../img/head.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+  background-color: #ffffff; 
+  font-family: 'Poppins', 'Bai Jamjuree', sans-serif;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; 
+    transition: transform 0.3s ease;
+}
+
+.name {
+    width: 100%;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.category-container {
+    display: flex;            /* ใช้ Flexbox เพื่อจัดเรียงในแนวนอน */
+    justify-content: space-evenly; /* จัดให้มีช่องว่างระหว่างปุ่ม */
+    align-items: center;      /* จัดตำแหน่งแนวตั้งของปุ่มให้อยู่ตรงกลาง */
+    flex-wrap: wrap;          /* ให้ปุ่มเรียงเป็นแถวใหม่ถ้าหน้าจอแคบ */
+    margin-top: 2vh;
+}
+
+.category-item {
+  width: 100%;               /* ปรับให้กว้างเต็มที่ของคอนเทนเนอร์ */
+    height: auto;             /* ความสูงอัตโนมัติ */
+    max-width: 60px;          /* จำกัดความกว้างสูงสุด */
+    aspect-ratio: 1 / 1;      /* รักษาสัดส่วนเป็นวงกลม (สามารถปรับเปลี่ยนได้) */
+    object-fit: cover;
+}
+
+.category-btn {
+    width: 100%;              /* ขนาดของรูปภาพ */
+    height: auto;
+    max-width: 60px;
+}
+
+.category-btn:hover {
+    transform: scale(1.1);    /* ขยายรูปภาพเมื่อเลื่อนเมาส์ */
+}
+
+/*.category-item p {
+    margin-top: 0px;
+    font-size: 14px;     
+    color: #333;           
+}*/
+
+.image-container {
+    display: flex;
+    overflow-x: auto; /* ให้เลื่อนซ้ายขวาได้ */
+    gap: 5px; /* เว้นระยะระหว่างรูป */
+}
+
+.image-item {
+    flex: 0 0 auto; /* ป้องกันไม่ให้ย่อขนาด */
+}
+
+.image-item img {
+    width: fit-content; /* กำหนดความกว้างของรูปภาพ */
+    height: auto; /* ปรับความสูงอัตโนมัติ */
+    border-radius: 8px; /* มุมมน */
+}
+    
+.category__img {
+    width: 100%; /* ความกว้างเต็มพื้นที่ของ parent */
+    position: relative; /* ใช้สำหรับการตั้งตำแหน่งรูปภาพ */
+    overflow: hidden; /* ซ่อนส่วนที่เกิน */
+    margin-bottom: 10px; /* ระยะห่างด้านล่าง */
+}
+    
+.category__img img {
+    position: absolute; /* ทำให้รูปภาพอยู่ในตำแหน่งที่ต้องการ */
+    top: 0; /* ตำแหน่งด้านบน */
+    left: 0; /* ตำแหน่งด้านซ้าย */
+    width: 100%; /* ให้ขยายให้เต็มความกว้าง */
+    height: 100%; /* ให้ขยายให้เต็มความสูง */
+    object-fit: cover; /* บีบอัดและครอบตัดให้ภาพเต็มโดยไม่บิดเบือน */
+}
+
+/* สไตล์สำหรับปุ่ม */
+.custom-btn {
+  padding: 10px 20px;
+  border-radius: 20px; /* ทำขอบมน */
+  border: 2px solid #955AB5; /* ขอบสีม่วง */
+  background-color: white; /* พื้นหลังโปร่งใส */
+  color: #757575; /* สีของตัวหนังสือ */
+  font-size: 16px;
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+  transition: all 0.3s ease; /* ทำให้การเปลี่ยนสีเป็น smooth */
+}
+
+.custom-btn-saved {
+  padding: 10px 20px;
+  border-radius: 20px; /* ทำขอบมน */
+  border: 2px solid #955AB5; /* ขอบสีม่วง */
+  background-color: #955AB5; /* พื้นหลังโปร่งใส */
+  color: white; /* สีของตัวหนังสือ */
+  font-size: 16px;
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อ hover */
+  transition: all 0.3s ease; /* ทำให้การเปลี่ยนสีเป็น smooth */
+}
+
+/* สไตล์เมื่อ hover */
+.custom-btn:hover {
+  background-color: #955AB5; /* พื้นหลังสีม่วงเมื่อ hover */
+  color: white; /* ตัวหนังสือเปลี่ยนเป็นสีขาว */
+}
+
+/* ปรับขนาดปุ่มตามความต้องการ */
+.custom-btn-small {
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center; /* ทำให้ปุ่มแสดงอยู่ซ้ายและขวา */
+}
+
+.saved-places-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* ระยะห่างระหว่างรายการ */
+}
+
+.saved-place-item {
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  border-bottom: 1px solid #C4C4C4; /* เส้นแบ่งแต่ละรายการ */
+  padding: 10px 0;
+}
+
+.category__img-container {
+  flex-shrink: 0;
+  width: 50%; /* ครึ่งหนึ่งของความกว้างแถว */
+  height: auto; /* ความสูงตามสัดส่วน */
+  margin-right: 15px; /* ระยะห่างระหว่างรูปกับข้อความ */
+}
+
+.category__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ทำให้รูปมีอัตราส่วน 1:1 */
+}
+
+.saved-place-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.saved-place-info h5 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.saved-place-info p {
+  margin: 5px 0 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* จัดตัวหนังสือให้อยู่กึ่งกลาง */
+}
+
+.tab {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 2px solid #C4C4C4; /* เส้นข้างใต้แท็บ */
+}
+
+.tab button {
+  flex: 1; /* แบ่งปุ่มให้ครึ่งหนึ่งของหน้าจอ */
+  background-color: transparent;
+  border: none;
+  padding: 14px 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  color: #757575; /* สีตัวอักษรเริ่มต้น */
+  border-bottom: 2px solid transparent; /* เส้นข้างใต้ของแต่ละปุ่ม */
+  transition: color 0.3s, border-color 0.3s; /* เพิ่มการเปลี่ยนสีเนียน */
+}
+
+.tab button:hover {
+  color: #000; /* สีตัวหนังสือเมื่อ hover */
+}
+
+.tab button.active {
+  color: #000; /* สีตัวหนังสือของแท็บที่ถูกกด */
+  border-bottom: 3px solid #955AB5; /* เส้นข้างใต้แท็บที่ถูกเลือก */
+}
+
+.tab-content {
+  display: none; /* ซ่อนเนื้อหาแท็บ */
+}
+
+.tab-content.active {
+  display: block; /* แสดงเนื้อหาแท็บที่ถูกเลือก */
+}
+
+.btn-save {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #955AB5; /* สีของไอคอน Bookmark */
+  transition: color 0.3s ease;
+}
+
+.btn-save:hover {
+  color: #757575; /* เปลี่ยนสีเมื่อ hover */
+}

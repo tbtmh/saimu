@@ -34,8 +34,10 @@ const chatbotController = require('./login/chatbotController');
  * App Routes 
 */
 const templeController = require('./login/templeController');
+const amuletController = require('./login/amuletController');
 const exploreCategories = require('./login/exploreCategories');
 const catbyidController = require('./login/catbyidController');
+
 
 const savedController = require('./login/savedController');
 const showsp = require('./login/showsp');
@@ -93,9 +95,11 @@ app.post('/chatbot', chatbotController.postMessage);
 app.get('/categories', exploreCategories);
 app.get('/categories/:id', catbyidController);
 app.get('/temple/:id', templeController);
+app.get('/amulet/:id', amuletController);
 
 app.post('/savedplace',authMiddleware, savedController)
 app.get('/sp', showsp);
+
 
 
 
