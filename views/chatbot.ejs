@@ -5,45 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <link rel="stylesheet" href="css/chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
+    <a href="/home" class="back"><img src="/img/back.png" ></a>
+    <p class="head">Chat Bot</p>
+    
+    <center>   
     <div class="chat-container">
         <div class="chatbox">
             <div id="chatbox-messages"></div>
             <form id="chat-form">
-                <input type="text" id="user-message" placeholder="Type your message..." required>
-                <button type="submit">Send</button>
+                <center><input class="sendbox" type="text" id="user-message" placeholder="Let’s ask something!" required>
+                <button class="send" type="send"><img src="/img/send.png" ></button></center>
             </form>
         </div>
     </div>
+    </center>
 
     <script>
         const chatForm = document.getElementById('chat-form');
         const chatMessages = document.getElementById('chatbox-messages');
-
+        const chatContainer = document.getElementById('chat-container');
+    
         chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const message = document.getElementById('user-message').value;
-
+    
             // Display user's message in the chatbox
             chatMessages.innerHTML += `<div class="message user-message">${message}</div>`;
-
+    
+            // Scroll to the latest message
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+    
             // Send message to the chatbot backend
             const response = await fetch('/chatbot', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message })
             });
-
+    
             const result = await response.json(); // Expecting JSON response
             
-            // Show response from the backend (temples and amulets)
+            // Show response from the backend (chatbot)
             chatMessages.innerHTML += `<div class="message bot-message">${result.response}</div>`;
-
+    
+            // Scroll to the latest message again after bot's response
+            userMessageElement.scrollTop({ behavior: 'smooth', block: 'Top' });
+    
             // Clear the input field after submission
             document.getElementById('user-message').value = '';
+            
         });
+        
+
     </script>
 </body>
 </html>
