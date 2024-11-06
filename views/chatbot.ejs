@@ -63,33 +63,36 @@
     <script>
       const chatForm = document.getElementById('chat-form');
       const chatMessages = document.getElementById('chatbox-messages');
-      
+    
+      function scrollToLatestMessage() {
+        const latestMessage = chatMessages.lastElementChild;
+        if (latestMessage) {
+          chatMessages.scrollTop = latestMessage.offsetTop - chatMessages.offsetHeight + 480  ;
+        }
+      }
+    
       chatForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+    
         const message = document.getElementById('user-message').value;
-        
-        // Display user's message at the top of the chatbox
-        chatMessages.insertAdjacentHTML('afterbegin', `<div class="message user-message">${message}</div>`);
-        
-        // Scroll to the top to show the latest user message
-        chatMessages.scrollTop = 0;
-        
-        // Send message to the chatbot backend
+    
+        chatMessages.insertAdjacentHTML('beforeend', `<div class="message user-message">${message}</div>`);
+    
+        const isUserAtBottom = chatMessages.scrollTop + chatMessages.clientHeight >= chatMessages.scrollHeight - 10;
+    
         const response = await fetch('/chatbot', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message })
         });
-        
-        const result = await response.json(); // Expecting JSON response
-        
-        // Show response from the backend (chatbot) at the top
-        chatMessages.insertAdjacentHTML('afterbegin', `<div class="message bot-message">${result.response}</div>`);
-        
-        // Clear the input field after submission
+    
+        const result = await response.json(); 
+    
+        chatMessages.insertAdjacentHTML('beforeend', `<div class="message bot-message">${result.response}</div>`);
+        scrollToLatestMessage();
         document.getElementById('user-message').value = '';
       });
     </script>
+        
 </body>
 </html>
