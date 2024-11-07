@@ -11,14 +11,12 @@ module.exports = (req, res) => {
           req.session.userId = user._id;
           return res.redirect('/home');
         } else {
-          // แจ้งว่ารหัสผ่านไม่ถูกต้อง
-          req.flash('errorlg', 'Incorrect password'); // เก็บข้อความแจ้งเตือน
+          req.flash('errorlg', 'Incorrect password');
           return res.redirect('/login');
         }
       });
     } else {
-      // แจ้งว่าไม่พบผู้ใช้
-      req.flash('errorlg', 'User not found'); // เก็บข้อความแจ้งเตือน
+      req.flash('errorlg', 'User not found'); 
       return res.redirect('/login');
     }
   });

@@ -67,7 +67,10 @@
       function scrollToLatestMessage() {
         const latestMessage = chatMessages.lastElementChild;
         if (latestMessage) {
-          chatMessages.scrollTop = latestMessage.offsetTop - chatMessages.offsetHeight + 480  ;
+          chatMessages.scrollTop = latestMessage.offsetTop - chatMessages.offsetHeight;
+          console.log("Latest message top:", latestMessage.offsetTop);
+          console.log("Chat message offset Height:", chatMessages.offsetHeight);
+          console.log("Scroll position:", chatMessages.scrollTop);
         }
       }
     
@@ -78,7 +81,6 @@
     
         chatMessages.insertAdjacentHTML('beforeend', `<div class="message user-message">${message}</div>`);
     
-        const isUserAtBottom = chatMessages.scrollTop + chatMessages.clientHeight >= chatMessages.scrollHeight - 10;
     
         const response = await fetch('/chatbot', {
           method: 'POST',

@@ -1,3 +1,7 @@
 module.exports = (req, res) => {
-    res.render('index')
+    if (req.session.userId) {  
+        res.redirect('/home');  
+    } else {
+        res.render('index');  
+    }
 }
